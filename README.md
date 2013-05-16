@@ -1,2 +1,2 @@
-eldritchInfusion
+Eldritch Infusion
 ================
