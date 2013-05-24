@@ -1,6 +1,8 @@
 package chista.EI;
 
+import chista.EI.item.ModItems;
 import chista.EI.lib.Reference;
+import chista.EI.ore.ModOres;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -28,7 +30,8 @@ public class EI
     @PreInit
     public void preInit(FMLPreInitializationEvent event)
     {
-        
+        ModOres.init();
+        ModItems.init();
     }
     
     @Init
