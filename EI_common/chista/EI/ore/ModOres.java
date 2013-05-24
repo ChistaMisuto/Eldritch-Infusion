@@ -13,7 +13,7 @@ public class ModOres {
 	// Mod block instances
 	public static Block amethystOre;
 	public static Block aquamarineOre;
-	public static Block carneliaOre;
+	public static Block carnelianOre;
 	public static Block garnetOre;
 	public static Block hematiteOre;
 	public static Block howliteOre;
@@ -33,7 +33,7 @@ public class ModOres {
 		// Load blocks
 		amethystOre = new OreAmethyst(BlockIds.AMETHYSTOREBLOCK);
 		aquamarineOre = new OreAquamarine(BlockIds.AQUAMARINEOREBLOCK);
-		carneliaOre = new OreCarnelia(BlockIds.CARNELIAOREBLOCK);
+		carnelianOre = new OreCarnelian(BlockIds.CARNELIAOREBLOCK);
 		garnetOre = new OreGarnet(BlockIds.GARNETOREBLOCK);
 		hematiteOre = new OreHematite(BlockIds.HEMATITEOREBLOCK);
 		howliteOre = new OreHowlite(BlockIds.HOWLITEOREBLOCK);
@@ -51,7 +51,7 @@ public class ModOres {
 		// Register blocks
 		GameRegistry.registerBlock(amethystOre, Strings.AMETHYSTORE_NAME);
 		GameRegistry.registerBlock(aquamarineOre, Strings.AQUAMARINEORE_NAME);
-		GameRegistry.registerBlock(carneliaOre, Strings.CARNELIAORE_NAME);
+		GameRegistry.registerBlock(carnelianOre, Strings.CARNELIANORE_NAME);
 		GameRegistry.registerBlock(garnetOre, Strings.GARNETORE_NAME);
 		GameRegistry.registerBlock(hematiteOre, Strings.HEMATITEORE_NAME);
 		GameRegistry.registerBlock(howliteOre, Strings.HOWLITEORE_NAME);
@@ -67,21 +67,21 @@ public class ModOres {
 		GameRegistry.registerBlock(tourmalineOre, Strings.TOURMALINEORE_NAME);
 
 		// Language registers
-		LanguageRegistry.addName(amethystOre, "Amathyst ore");
-		LanguageRegistry.addName(aquamarineOre, "Aquamarine ore");
-		LanguageRegistry.addName(carneliaOre, "Carnelia ore");
-		LanguageRegistry.addName(garnetOre, "Garnet ore");
-		LanguageRegistry.addName(hematiteOre, "Hematite ore");
-		LanguageRegistry.addName(howliteOre, "Howlite ore");
-		LanguageRegistry.addName(mountainCrystalOre, "Mountain Crystal ore");
-		LanguageRegistry.addName(onyxOre, "Onyx ore");
-		LanguageRegistry.addName(opalOre, "Opal ore");
-		LanguageRegistry.addName(peridotOre, "Peridot ore");
-		LanguageRegistry.addName(rhodocrositeOre, "Rhodochrosite ore");
-		LanguageRegistry.addName(spheneOre, "Sphene ore");
-		LanguageRegistry.addName(spinelOre, "Spinel ore");
-		LanguageRegistry.addName(tigersEyeOre, "Tigers Eye ore");
-		LanguageRegistry.addName(topazOre, "Topaz ore");
-		LanguageRegistry.addName(tourmalineOre, "Tourmaline ore");
+		LanguageRegistry.addName(amethystOre, "Amathyst Ore");
+		LanguageRegistry.addName(aquamarineOre, "Aquamarine Ore");
+		LanguageRegistry.addName(carnelianOre, "Carnelian Ore");
+		LanguageRegistry.addName(garnetOre, "Garnet Ore");
+		LanguageRegistry.addName(hematiteOre, "Hematite Ore");
+		LanguageRegistry.addName(howliteOre, "Howlite Ore");
+		LanguageRegistry.addName(mountainCrystalOre, "Mountain Crystal Ore");
+		LanguageRegistry.addName(onyxOre, "Onyx Ore");
+		LanguageRegistry.addName(opalOre, "Opal Ore");
+		LanguageRegistry.addName(peridotOre, "Peridot Ore");
+		LanguageRegistry.addName(rhodocrositeOre, "Rhodochrosite Ore");
+		LanguageRegistry.addName(spheneOre, "Sphene Ore");
+		LanguageRegistry.addName(spinelOre, "Spinel Ore");
+		LanguageRegistry.addName(tigersEyeOre, "Tigers Eye Ore");
+		LanguageRegistry.addName(topazOre, "Topaz Ore");
+		LanguageRegistry.addName(tourmalineOre, "Tourmaline Ore");
 	}
 }

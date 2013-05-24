@@ -6,10 +6,15 @@ import net.minecraft.block.material.Material;
 import chista.EI.item.ModItems;
 import chista.EI.lib.Strings;
 
-public class OreCarnelia extends ModOreBase {
-	public OreCarnelia(int id) {
+public class OreCarnelian extends ModOreBase {
+	public OreCarnelian(int id) {
 		super(id, Material.rock);
+<<<<<<< HEAD:EI_common/chista/EI/ore/OreCarnelia.java
 		this.setUnlocalizedName(Strings.CARNELIAORE_NAME);
+=======
+		this.setUnlocalizedName(Strings.CARNELIANORE_NAME);
+		this.setCreativeTab(CreativeTabs.tabBlock);
+>>>>>>> ba0838478c83d69efb9321f213c5f739610c6a3d:EI_common/chista/EI/ore/OreCarnelian.java
 	}
 
 	@Override
