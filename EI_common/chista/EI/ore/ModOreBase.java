@@ -8,11 +8,13 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
+import chista.EI.EI;
 import chista.EI.lib.Reference;
 
 public class ModOreBase extends Block {
 	public ModOreBase(int id, Material material) {
 		super(id, material);
+		this.setCreativeTab(EI.creativeTabEI);
 
 		this.setHardness(5.0F);
 		MinecraftForge.setBlockHarvestLevel(this, "pickaxe", 2);

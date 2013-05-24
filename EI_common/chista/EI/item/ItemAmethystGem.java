@@ -4,7 +4,7 @@ import chista.EI.lib.Reference;
 import chista.EI.lib.Strings;
 
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
+import chista.EI.EI;
 import net.minecraft.item.Item;
 
 public class ItemAmethystGem extends Item {
@@ -12,7 +12,7 @@ public class ItemAmethystGem extends Item {
 		super(id);
 		this.setUnlocalizedName(Strings.amethystGem);
 		
-		this.setCreativeTab(CreativeTabs.tabMaterials);
+		this.setCreativeTab(EI.creativeTabEI);
 	}
 
 	@Override

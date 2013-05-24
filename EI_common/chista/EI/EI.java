@@ -1,5 +1,7 @@
 package chista.EI;
 
+import net.minecraft.creativetab.CreativeTabs;
+import chista.EI.creativetab.CreativeTabEI;
 import chista.EI.item.ModItems;
 import chista.EI.lib.Reference;
 import chista.EI.ore.ModOres;
@@ -26,6 +28,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class EI
 {
+	
+	public static CreativeTabs creativeTabEI = new CreativeTabEI(CreativeTabs.getNextID(), Reference.MOD_ID);
     
     @PreInit
     public void preInit(FMLPreInitializationEvent event)

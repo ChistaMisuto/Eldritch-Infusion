@@ -1,11 +1,10 @@
 package chista.EI.item;
 
+import net.minecraft.item.Item;
 import chista.EI.lib.ItemIds;
 import chista.EI.lib.Strings;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.item.Item;
 
 public class ModItems {
 	// Mod item instances
@@ -26,7 +25,6 @@ public class ModItems {
 	public static Item topazGem;
 	public static Item tourmalineGem;
 
-
 	public static void init() {
 		// Load items
 		amethystGem = new ItemAmethystGem(ItemIds.amethystGem);
@@ -35,7 +33,8 @@ public class ModItems {
 		garnetGem = new ItemGarnetGem(ItemIds.garnetGem);
 		hematiteGem = new ItemHematiteGem(ItemIds.hematiteGem);
 		howliteGem = new ItemHowliteGem(ItemIds.howliteGem);
-		mountainCrystalGem = new ItemMountainCrystalGem(ItemIds.mountainCrystalGem);
+		mountainCrystalGem = new ItemMountainCrystalGem(
+				ItemIds.mountainCrystalGem);
 		onyxGem = new ItemOnyxGem(ItemIds.onyxGem);
 		opalGem = new ItemOpalGem(ItemIds.opalGem);
 		peridotGem = new ItemPeridotGem(ItemIds.peridotGem);
@@ -46,7 +45,6 @@ public class ModItems {
 		topazGem = new ItemTopazGem(ItemIds.topazGem);
 		tourmalineGem = new ItemTourmalineGem(ItemIds.tourmalineGem);
 
-		
 		// Register items
 		GameRegistry.registerItem(amethystGem, Strings.amethystGem);
 		GameRegistry.registerItem(aquamarineGem, Strings.aquamarineGem);
@@ -54,7 +52,8 @@ public class ModItems {
 		GameRegistry.registerItem(garnetGem, Strings.garnetGem);
 		GameRegistry.registerItem(hematiteGem, Strings.hematiteGem);
 		GameRegistry.registerItem(howliteGem, Strings.howliteGem);
-		GameRegistry.registerItem(mountainCrystalGem, Strings.mountainCrystalGem);
+		GameRegistry.registerItem(mountainCrystalGem,
+				Strings.mountainCrystalGem);
 		GameRegistry.registerItem(onyxGem, Strings.onyxGem);
 		GameRegistry.registerItem(opalGem, Strings.opalGem);
 		GameRegistry.registerItem(peridotGem, Strings.peridotGem);
@@ -65,7 +64,6 @@ public class ModItems {
 		GameRegistry.registerItem(topazGem, Strings.topazGem);
 		GameRegistry.registerItem(tourmalineGem, Strings.tourmalineGem);
 
-		
 		// Language registry
 		LanguageRegistry.addName(amethystGem, "Amethyst");
 		LanguageRegistry.addName(aquamarineGem, "Aquamarine");
