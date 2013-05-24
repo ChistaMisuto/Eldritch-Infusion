@@ -69,19 +69,19 @@ public class ModItems {
 		// Language registry
 		LanguageRegistry.addName(amethystGem, "Amethyst");
 		LanguageRegistry.addName(aquamarineGem, "Aquamarine");
-		LanguageRegistry.addName(carnelianGem, "Carnelian Gem");
-		LanguageRegistry.addName(garnetGem, "Garnet Gem");
-		LanguageRegistry.addName(hematiteGem, "Hematite Gem");
-		LanguageRegistry.addName(howliteGem, "Howlite Gem");
+		LanguageRegistry.addName(carnelianGem, "Carnelian");
+		LanguageRegistry.addName(garnetGem, "Garnet");
+		LanguageRegistry.addName(hematiteGem, "Hematite");
+		LanguageRegistry.addName(howliteGem, "Howlite");
 		LanguageRegistry.addName(mountainCrystalGem, "Mountain Crystal");
-		LanguageRegistry.addName(onyxGem, "Onyx Gem");
-		LanguageRegistry.addName(opalGem, "Opal Gem");
-		LanguageRegistry.addName(peridotGem, "Peridot Gem");
-		LanguageRegistry.addName(rhodochrositeGem, "Rhodochrosite Gem");
-		LanguageRegistry.addName(spheneGem, "Sphene Gem");
-		LanguageRegistry.addName(spinelGem, "Spinel Gem");
-		LanguageRegistry.addName(tigersEyeGem, "Tigers eye");
-		LanguageRegistry.addName(topazGem, "Topaz Gem");
-		LanguageRegistry.addName(tourmalineGem, "Tourmaline Gem");
+		LanguageRegistry.addName(onyxGem, "Onyx");
+		LanguageRegistry.addName(opalGem, "Opal");
+		LanguageRegistry.addName(peridotGem, "Peridot");
+		LanguageRegistry.addName(rhodochrositeGem, "Rhodochrosite");
+		LanguageRegistry.addName(spheneGem, "Sphene");
+		LanguageRegistry.addName(spinelGem, "Spinel");
+		LanguageRegistry.addName(tigersEyeGem, "Tiger's Eye");
+		LanguageRegistry.addName(topazGem, "Topaz");
+		LanguageRegistry.addName(tourmalineGem, "Tourmaline");
 	}
 }

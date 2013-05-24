@@ -8,10 +8,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import chista.EI.item.ModItems;
 import chista.EI.lib.Strings;
 
-public class OreCarnelia extends ModOreBase {
-	public OreCarnelia(int id) {
+public class OreCarnelian extends ModOreBase {
+	public OreCarnelian(int id) {
 		super(id, Material.rock);
-		this.setUnlocalizedName(Strings.CARNELIAORE_NAME);
+		this.setUnlocalizedName(Strings.CARNELIANORE_NAME);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
