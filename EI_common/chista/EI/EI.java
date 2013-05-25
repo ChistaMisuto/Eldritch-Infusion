@@ -1,6 +1,7 @@
 package chista.EI;
 
 import net.minecraft.creativetab.CreativeTabs;
+import chista.EI.core.handler.LocalizationHandler;
 import chista.EI.creativetab.CreativeTabEI;
 import chista.EI.item.ModItems;
 import chista.EI.lib.Reference;
@@ -12,6 +13,7 @@ import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
 
 /**
  * @mod class for EI 
@@ -25,7 +27,10 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
     name = Reference.NAME, 
     version = Reference.VERSION
 )
-
+@NetworkMod(
+	serverSideRequired = false,
+	clientSideRequired = true
+)
 public class EI
 {
 	
@@ -34,6 +39,9 @@ public class EI
     @PreInit
     public void preInit(FMLPreInitializationEvent event)
     {
+    	LocalizationHandler.loadLanguages();
+    	
+    	
         ModOres.init();
         ModItems.init();
     }

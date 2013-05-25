@@ -4,7 +4,6 @@ import net.minecraft.item.Item;
 import chista.EI.lib.ItemIds;
 import chista.EI.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItems {
 	// Mod item instances
@@ -33,8 +32,7 @@ public class ModItems {
 		garnetGem = new ItemGarnetGem(ItemIds.garnetGem);
 		hematiteGem = new ItemHematiteGem(ItemIds.hematiteGem);
 		howliteGem = new ItemHowliteGem(ItemIds.howliteGem);
-		mountainCrystalGem = new ItemMountainCrystalGem(
-				ItemIds.mountainCrystalGem);
+		mountainCrystalGem = new ItemMountainCrystalGem( ItemIds.mountainCrystalGem);
 		onyxGem = new ItemOnyxGem(ItemIds.onyxGem);
 		opalGem = new ItemOpalGem(ItemIds.opalGem);
 		peridotGem = new ItemPeridotGem(ItemIds.peridotGem);
@@ -52,8 +50,7 @@ public class ModItems {
 		GameRegistry.registerItem(garnetGem, Strings.garnetGem);
 		GameRegistry.registerItem(hematiteGem, Strings.hematiteGem);
 		GameRegistry.registerItem(howliteGem, Strings.howliteGem);
-		GameRegistry.registerItem(mountainCrystalGem,
-				Strings.mountainCrystalGem);
+		GameRegistry.registerItem(mountainCrystalGem, Strings.mountainCrystalGem);
 		GameRegistry.registerItem(onyxGem, Strings.onyxGem);
 		GameRegistry.registerItem(opalGem, Strings.opalGem);
 		GameRegistry.registerItem(peridotGem, Strings.peridotGem);
@@ -63,23 +60,5 @@ public class ModItems {
 		GameRegistry.registerItem(tigersEyeGem, Strings.tigersEyeGem);
 		GameRegistry.registerItem(topazGem, Strings.topazGem);
 		GameRegistry.registerItem(tourmalineGem, Strings.tourmalineGem);
-
-		// Language registry
-		LanguageRegistry.addName(amethystGem, "Amethyst");
-		LanguageRegistry.addName(aquamarineGem, "Aquamarine");
-		LanguageRegistry.addName(carnelianGem, "Carnelian");
-		LanguageRegistry.addName(garnetGem, "Garnet");
-		LanguageRegistry.addName(hematiteGem, "Hematite");
-		LanguageRegistry.addName(howliteGem, "Howlite");
-		LanguageRegistry.addName(mountainCrystalGem, "Mountain Crystal");
-		LanguageRegistry.addName(onyxGem, "Onyx");
-		LanguageRegistry.addName(opalGem, "Opal");
-		LanguageRegistry.addName(peridotGem, "Peridot");
-		LanguageRegistry.addName(rhodochrositeGem, "Rhodochrosite");
-		LanguageRegistry.addName(spheneGem, "Sphene");
-		LanguageRegistry.addName(spinelGem, "Spinel");
-		LanguageRegistry.addName(tigersEyeGem, "Tiger's Eye");
-		LanguageRegistry.addName(topazGem, "Topaz");
-		LanguageRegistry.addName(tourmalineGem, "Tourmaline");
 	}
 }
