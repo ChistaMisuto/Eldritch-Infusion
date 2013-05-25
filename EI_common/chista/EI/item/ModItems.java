@@ -4,7 +4,6 @@ import net.minecraft.item.Item;
 import chista.EI.lib.ItemIds;
 import chista.EI.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItems {
 	// Mod item instances
@@ -27,23 +26,22 @@ public class ModItems {
 
 	public static void init() {
 		// Load items
-		amethystGem = new ItemAmethystGem(ItemIds.amethystGem);
-		aquamarineGem = new ItemAquamarineGem(ItemIds.aquamarineGem);
-		carnelianGem = new ItemCarnelianGem(ItemIds.carnelianGem);
-		garnetGem = new ItemGarnetGem(ItemIds.garnetGem);
-		hematiteGem = new ItemHematiteGem(ItemIds.hematiteGem);
-		howliteGem = new ItemHowliteGem(ItemIds.howliteGem);
-		mountainCrystalGem = new ItemMountainCrystalGem(
-				ItemIds.mountainCrystalGem);
-		onyxGem = new ItemOnyxGem(ItemIds.onyxGem);
-		opalGem = new ItemOpalGem(ItemIds.opalGem);
-		peridotGem = new ItemPeridotGem(ItemIds.peridotGem);
-		rhodochrositeGem = new ItemRhodochrositeGem(ItemIds.rhodochrositeGem);
-		spheneGem = new ItemSpheneGem(ItemIds.spheneGem);
-		spinelGem = new ItemSpinelGem(ItemIds.spinelGem);
-		tigersEyeGem = new ItemTigersEyeGem(ItemIds.tigersEyeGem);
-		topazGem = new ItemTopazGem(ItemIds.topazGem);
-		tourmalineGem = new ItemTourmalineGem(ItemIds.tourmalineGem);
+		amethystGem = new ItemAmethystGem(ItemIds.AMETHYSTGEM);
+		aquamarineGem = new ItemAquamarineGem(ItemIds.AQUAMARINEGEM);
+		carnelianGem = new ItemCarnelianGem(ItemIds.CARNELIANGEM);
+		garnetGem = new ItemGarnetGem(ItemIds.GARNETGEM);
+		hematiteGem = new ItemHematiteGem(ItemIds.HEMATITEGEM);
+		howliteGem = new ItemHowliteGem(ItemIds.HOWLITEGEM);
+		mountainCrystalGem = new ItemMountainCrystalGem( ItemIds.MOUNTAINCRYSTALGEM);
+		onyxGem = new ItemOnyxGem(ItemIds.ONYXGEM);
+		opalGem = new ItemOpalGem(ItemIds.OPALGEM);
+		peridotGem = new ItemPeridotGem(ItemIds.PERIDOTGEM);
+		rhodochrositeGem = new ItemRhodochrositeGem(ItemIds.RHODOCHROSITEGEM);
+		spheneGem = new ItemSpheneGem(ItemIds.SPHENEGEM);
+		spinelGem = new ItemSpinelGem(ItemIds.SPINELGEM);
+		tigersEyeGem = new ItemTigersEyeGem(ItemIds.TIGERSEYEGEM);
+		topazGem = new ItemTopazGem(ItemIds.TOPAZGEM);
+		tourmalineGem = new ItemTourmalineGem(ItemIds.TOURMALINEGEM);
 
 		// Register items
 		GameRegistry.registerItem(amethystGem, Strings.amethystGem);
@@ -52,8 +50,7 @@ public class ModItems {
 		GameRegistry.registerItem(garnetGem, Strings.garnetGem);
 		GameRegistry.registerItem(hematiteGem, Strings.hematiteGem);
 		GameRegistry.registerItem(howliteGem, Strings.howliteGem);
-		GameRegistry.registerItem(mountainCrystalGem,
-				Strings.mountainCrystalGem);
+		GameRegistry.registerItem(mountainCrystalGem, Strings.mountainCrystalGem);
 		GameRegistry.registerItem(onyxGem, Strings.onyxGem);
 		GameRegistry.registerItem(opalGem, Strings.opalGem);
 		GameRegistry.registerItem(peridotGem, Strings.peridotGem);
@@ -63,23 +60,5 @@ public class ModItems {
 		GameRegistry.registerItem(tigersEyeGem, Strings.tigersEyeGem);
 		GameRegistry.registerItem(topazGem, Strings.topazGem);
 		GameRegistry.registerItem(tourmalineGem, Strings.tourmalineGem);
-
-		// Language registry
-		LanguageRegistry.addName(amethystGem, "Amethyst");
-		LanguageRegistry.addName(aquamarineGem, "Aquamarine");
-		LanguageRegistry.addName(carnelianGem, "Carnelian");
-		LanguageRegistry.addName(garnetGem, "Garnet");
-		LanguageRegistry.addName(hematiteGem, "Hematite");
-		LanguageRegistry.addName(howliteGem, "Howlite");
-		LanguageRegistry.addName(mountainCrystalGem, "Mountain Crystal");
-		LanguageRegistry.addName(onyxGem, "Onyx");
-		LanguageRegistry.addName(opalGem, "Opal");
-		LanguageRegistry.addName(peridotGem, "Peridot");
-		LanguageRegistry.addName(rhodochrositeGem, "Rhodochrosite");
-		LanguageRegistry.addName(spheneGem, "Sphene");
-		LanguageRegistry.addName(spinelGem, "Spinel");
-		LanguageRegistry.addName(tigersEyeGem, "Tiger's Eye");
-		LanguageRegistry.addName(topazGem, "Topaz");
-		LanguageRegistry.addName(tourmalineGem, "Tourmaline");
 	}
 }

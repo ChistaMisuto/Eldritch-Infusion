@@ -7,9 +7,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-
 import chista.EI.EI;
 import chista.EI.lib.Reference;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ModOreBase extends Block {
 	public ModOreBase(int id, Material material) {
@@ -25,6 +26,7 @@ public class ModOreBase extends Block {
 		return blockID;
 	}
 	
+	@Override
     public int quantityDroppedWithBonus(int enchantLevel, Random random) {
         if (enchantLevel > 0 && this.blockID != this.idDropped(0, random, enchantLevel)) {
             int j = random.nextInt(enchantLevel + 2) - 1;
@@ -50,6 +52,7 @@ public class ModOreBase extends Block {
 		this.dropXpOnBlockBreak(world, x, y, z, 2);
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister icon) {
 		blockIcon = icon.registerIcon(Reference.MOD_ID + ":" + this.getUnlocalizedName().substring(5));

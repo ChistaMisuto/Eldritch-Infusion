@@ -4,7 +4,7 @@ public class Strings {
 	// Ores
 	public static final String AMETHYSTORE_NAME        = "amethystOre";
 	public static final String AQUAMARINEORE_NAME      = "aquamarineOre";
-	public static final String CARNELIANORE_NAME        = "carnelianOre";
+	public static final String CARNELIANORE_NAME       = "carnelianOre";
 	public static final String GARNETORE_NAME          = "garnetOre";
 	public static final String HEMATITEORE_NAME        = "hematiteOre";
 	public static final String HOWLITEORE_NAME         = "howliteOre";

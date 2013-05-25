@@ -6,7 +6,6 @@ import chista.EI.lib.BlockIds;
 import chista.EI.lib.Strings;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModOres {
 
@@ -65,23 +64,5 @@ public class ModOres {
 		GameRegistry.registerBlock(tigersEyeOre, Strings.TIGERSEYEORE_NAME);
 		GameRegistry.registerBlock(topazOre, Strings.TOPAZORE_NAME);
 		GameRegistry.registerBlock(tourmalineOre, Strings.TOURMALINEORE_NAME);
-
-		// Language registers
-		LanguageRegistry.addName(amethystOre, "Amathyst Ore");
-		LanguageRegistry.addName(aquamarineOre, "Aquamarine Ore");
-		LanguageRegistry.addName(carnelianOre, "Carnelian Ore");
-		LanguageRegistry.addName(garnetOre, "Garnet Ore");
-		LanguageRegistry.addName(hematiteOre, "Hematite Ore");
-		LanguageRegistry.addName(howliteOre, "Howlite Ore");
-		LanguageRegistry.addName(mountainCrystalOre, "Mountain Crystal Ore");
-		LanguageRegistry.addName(onyxOre, "Onyx Ore");
-		LanguageRegistry.addName(opalOre, "Opal Ore");
-		LanguageRegistry.addName(peridotOre, "Peridot Ore");
-		LanguageRegistry.addName(rhodocrositeOre, "Rhodochrosite Ore");
-		LanguageRegistry.addName(spheneOre, "Sphene Ore");
-		LanguageRegistry.addName(spinelOre, "Spinel Ore");
-		LanguageRegistry.addName(tigersEyeOre, "Tigers Eye Ore");
-		LanguageRegistry.addName(topazOre, "Topaz Ore");
-		LanguageRegistry.addName(tourmalineOre, "Tourmaline Ore");
 	}
 }

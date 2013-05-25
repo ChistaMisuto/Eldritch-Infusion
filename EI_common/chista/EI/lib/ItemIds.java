@@ -1,20 +1,37 @@
 package chista.EI.lib;
 
 public class ItemIds {
-	public static int amethystGem = 8800;
-	public static int aquamarineGem = 8801;
-	public static int carnelianGem = 8802;
-	public static int garnetGem = 8803;
-	public static int hematiteGem = 8804;
-	public static int howliteGem = 8805;
-	public static int mountainCrystalGem = 8806;
-	public static int onyxGem = 8807;
-	public static int opalGem = 8808;
-	public static int peridotGem = 8809;
-	public static int rhodochrositeGem = 8810;
-	public static int spheneGem = 8811;
-	public static int spinelGem = 8812;
-	public static int tigersEyeGem = 8813;
-	public static int topazGem = 8814;
-	public static int tourmalineGem = 8815;
+	public static final int AMETHYSTGEM_DEFAULT = 8800;
+	public static final int AQUAMARINEGEM_DEFAULT = 8801;
+	public static final int CARNELIANGEM_DEFAULT = 8802;
+	public static final int GARNETGEM_DEFAULT = 8803;
+	public static final int HEMATITEGEM_DEFAULT = 8804;
+	public static final int HOWLITEGEM_DEFAULT = 8805;
+	public static final int MOUNTAINCRYSTALGEM_DEFAULT = 8806;
+	public static final int ONYXGEM_DEFAULT = 8807;
+	public static final int OPALGEM_DEFAULT = 8808;
+	public static final int PERIDOTGEM_DEFAULT = 8809;
+	public static final int RHODOCHROSITEGEM_DEFAULT = 8810;
+	public static final int SPHENEGEM_DEFAULT = 8811;
+	public static final int SPINELGEM_DEFAULT = 8812;
+	public static final int TIGERSEYEGEM_DEFAULT = 8813;
+	public static final int TOPAZGEM_DEFAULT = 8814;
+	public static final int TOURMALINEGEM_DEFAULT = 8815;
+
+	public static int AMETHYSTGEM;
+	public static int AQUAMARINEGEM;
+	public static int CARNELIANGEM;
+	public static int GARNETGEM;
+	public static int HEMATITEGEM;
+	public static int HOWLITEGEM;
+	public static int MOUNTAINCRYSTALGEM;
+	public static int ONYXGEM;
+	public static int OPALGEM;
+	public static int PERIDOTGEM;
+	public static int RHODOCHROSITEGEM;
+	public static int SPHENEGEM;
+	public static int SPINELGEM;
+	public static int TIGERSEYEGEM;
+	public static int TOPAZGEM;
+	public static int TOURMALINEGEM;
 }
