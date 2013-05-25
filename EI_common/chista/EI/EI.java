@@ -5,6 +5,7 @@ import chista.EI.creativetab.CreativeTabEI;
 import chista.EI.item.ModItems;
 import chista.EI.lib.Reference;
 import chista.EI.ore.ModOres;
+import chista.EI.world.biome.ModBiomes;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -36,6 +37,7 @@ public class EI
     {
         ModOres.init();
         ModItems.init();
+        ModBiomes.init();
     }
     
     @Init
