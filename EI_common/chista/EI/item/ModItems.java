@@ -26,22 +26,22 @@ public class ModItems {
 
 	public static void init() {
 		// Load items
-		amethystGem = new ItemAmethystGem(ItemIds.amethystGem);
-		aquamarineGem = new ItemAquamarineGem(ItemIds.aquamarineGem);
-		carnelianGem = new ItemCarnelianGem(ItemIds.carnelianGem);
-		garnetGem = new ItemGarnetGem(ItemIds.garnetGem);
-		hematiteGem = new ItemHematiteGem(ItemIds.hematiteGem);
-		howliteGem = new ItemHowliteGem(ItemIds.howliteGem);
-		mountainCrystalGem = new ItemMountainCrystalGem( ItemIds.mountainCrystalGem);
-		onyxGem = new ItemOnyxGem(ItemIds.onyxGem);
-		opalGem = new ItemOpalGem(ItemIds.opalGem);
-		peridotGem = new ItemPeridotGem(ItemIds.peridotGem);
-		rhodochrositeGem = new ItemRhodochrositeGem(ItemIds.rhodochrositeGem);
-		spheneGem = new ItemSpheneGem(ItemIds.spheneGem);
-		spinelGem = new ItemSpinelGem(ItemIds.spinelGem);
-		tigersEyeGem = new ItemTigersEyeGem(ItemIds.tigersEyeGem);
-		topazGem = new ItemTopazGem(ItemIds.topazGem);
-		tourmalineGem = new ItemTourmalineGem(ItemIds.tourmalineGem);
+		amethystGem = new ItemAmethystGem(ItemIds.AMETHYSTGEM);
+		aquamarineGem = new ItemAquamarineGem(ItemIds.AQUAMARINEGEM);
+		carnelianGem = new ItemCarnelianGem(ItemIds.CARNELIANGEM);
+		garnetGem = new ItemGarnetGem(ItemIds.GARNETGEM);
+		hematiteGem = new ItemHematiteGem(ItemIds.HEMATITEGEM);
+		howliteGem = new ItemHowliteGem(ItemIds.HOWLITEGEM);
+		mountainCrystalGem = new ItemMountainCrystalGem( ItemIds.MOUNTAINCRYSTALGEM);
+		onyxGem = new ItemOnyxGem(ItemIds.ONYXGEM);
+		opalGem = new ItemOpalGem(ItemIds.OPALGEM);
+		peridotGem = new ItemPeridotGem(ItemIds.PERIDOTGEM);
+		rhodochrositeGem = new ItemRhodochrositeGem(ItemIds.RHODOCHROSITEGEM);
+		spheneGem = new ItemSpheneGem(ItemIds.SPHENEGEM);
+		spinelGem = new ItemSpinelGem(ItemIds.SPINELGEM);
+		tigersEyeGem = new ItemTigersEyeGem(ItemIds.TIGERSEYEGEM);
+		topazGem = new ItemTopazGem(ItemIds.TOPAZGEM);
+		tourmalineGem = new ItemTourmalineGem(ItemIds.TOURMALINEGEM);
 
 		// Register items
 		GameRegistry.registerItem(amethystGem, Strings.amethystGem);
