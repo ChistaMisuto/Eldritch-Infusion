@@ -5,6 +5,7 @@
 	<!-- Blocks -->
 	<entry key="tile.amethystOre.name">Amethyst ore</entry>
 	<entry key="tile.aquamarineOre.name">Aquamarine ore</entry>
+	<entry key="tile.carnelianOre.name">Carnelian</entry>
 	<entry key="tile.garnetOre.name">Garnet ore</entry>
 	<entry key="tile.hematiteOre.name">Hematite ore</entry>
 	<entry key="tile.howliteOre.name">Howlite ore</entry>
@@ -36,4 +37,7 @@
 	<entry key="item.tigersEyeGem.name">Tigers eye</entry>
 	<entry key="item.topazGem.name">Topaz</entry>
 	<entry key="item.tourmalineGem.name">Tourmaline</entry>
+
+	<!-- Creative tab -->
+	<entry key="itemGroup.EI">Eldritch Infusion</entry>
 </properties>
