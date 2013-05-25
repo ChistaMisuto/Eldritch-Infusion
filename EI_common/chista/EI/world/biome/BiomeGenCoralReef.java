@@ -1,6 +1,12 @@
 package chista.EI.world.biome;
 
-public class BiomeGenCoralReef
-{
+import net.minecraft.world.biome.BiomeGenBase;
 
+public class BiomeGenCoralReef extends BiomeGenBase
+{
+    public BiomeGenCoralReef(int par1)
+    {
+        super(par1);
+        
+    }
 }

@@ -1,6 +1,13 @@
 package chista.EI.world.biome;
 
-public class BiomeGenBiolSwamp
-{
+import net.minecraft.block.Block;
+import net.minecraft.world.biome.BiomeGenBase;
 
+public class BiomeGenBiolSwamp extends BiomeGenBase
+{
+    public BiomeGenBiolSwamp(int par1)
+    {
+        super(par1);
+        
+    }
 }

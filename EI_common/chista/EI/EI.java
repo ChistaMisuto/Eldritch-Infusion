@@ -29,7 +29,7 @@ import cpw.mods.fml.common.network.NetworkMod;
  */
 
 @Mod(
-    modid= Reference.MOD_ID, //Find in Chista.EI.lib
+    modid= Reference.MOD_ID, 
     name = Reference.MOD_NAME, 
     version = Reference.MOD_VERSION
 )
