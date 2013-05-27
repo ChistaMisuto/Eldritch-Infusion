@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemMountainCrystalGem extends Item {
 	public ItemMountainCrystalGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.mountainCrystalGem);
+		this.setUnlocalizedName(Strings.MOUNTAINCRYSTELGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

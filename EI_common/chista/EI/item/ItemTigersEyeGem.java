@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemTigersEyeGem extends Item {
 	public ItemTigersEyeGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.tigersEyeGem);
+		this.setUnlocalizedName(Strings.TIGERSEYEGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

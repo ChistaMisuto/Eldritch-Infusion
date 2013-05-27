@@ -38,22 +38,22 @@ public class ConfigurationHandler {
 			BlockIds.TOPAZOREBLOCK = config.getBlock(Strings.TOPAZORE_NAME, BlockIds.TOPAZOREBLOCK).getInt(BlockIds.TOPAZOREBLOCK_DEFAULT);
 			BlockIds.TOURMALINEOREBLOCK = config.getBlock(Strings.TOURMALINEORE_NAME, BlockIds.TOURMALINEOREBLOCK).getInt(BlockIds.TOURMALINEOREBLOCK_DEFAULT);
 			
-			ItemIds.AMETHYSTGEM = config.getItem(Strings.amethystGem, ItemIds.AMETHYSTGEM).getInt(ItemIds.AMETHYSTGEM_DEFAULT);
-			ItemIds.AQUAMARINEGEM = config.getItem(Strings.aquamarineGem, ItemIds.AQUAMARINEGEM).getInt(ItemIds.AQUAMARINEGEM_DEFAULT);
-			ItemIds.CARNELIANGEM = config.getItem(Strings.carnelianGem, ItemIds.CARNELIANGEM).getInt(ItemIds.CARNELIANGEM_DEFAULT);
-			ItemIds.GARNETGEM = config.getItem(Strings.garnetGem, ItemIds.GARNETGEM).getInt(ItemIds.GARNETGEM_DEFAULT);
-			ItemIds.HEMATITEGEM = config.getItem(Strings.hematiteGem, ItemIds.HEMATITEGEM).getInt(ItemIds.HEMATITEGEM_DEFAULT);
-			ItemIds.HOWLITEGEM = config.getItem(Strings.howliteGem, ItemIds.HOWLITEGEM).getInt(ItemIds.HOWLITEGEM_DEFAULT);
-			ItemIds.MOUNTAINCRYSTALGEM = config.getItem(Strings.mountainCrystalGem, ItemIds.MOUNTAINCRYSTALGEM).getInt(ItemIds.MOUNTAINCRYSTALGEM_DEFAULT);
-			ItemIds.ONYXGEM = config.getItem(Strings.onyxGem, ItemIds.ONYXGEM).getInt(ItemIds.ONYXGEM_DEFAULT);
-			ItemIds.OPALGEM = config.getItem(Strings.opalGem, ItemIds.OPALGEM).getInt(ItemIds.OPALGEM_DEFAULT);
-			ItemIds.PERIDOTGEM = config.getItem(Strings.peridotGem, ItemIds.PERIDOTGEM).getInt(ItemIds.PERIDOTGEM_DEFAULT);
-			ItemIds.RHODOCHROSITEGEM = config.getItem(Strings.rhodochrositeGem, ItemIds.RHODOCHROSITEGEM).getInt(ItemIds.RHODOCHROSITEGEM_DEFAULT);
-			ItemIds.SPHENEGEM = config.getItem(Strings.spheneGem, ItemIds.SPHENEGEM).getInt(ItemIds.SPHENEGEM_DEFAULT);
-			ItemIds.SPINELGEM = config.getItem(Strings.spinelGem, ItemIds.SPINELGEM).getInt(ItemIds.SPINELGEM_DEFAULT);
-			ItemIds.TIGERSEYEGEM = config.getItem(Strings.tigersEyeGem, ItemIds.TIGERSEYEGEM).getInt(ItemIds.TIGERSEYEGEM_DEFAULT);
-			ItemIds.TOPAZGEM = config.getItem(Strings.topazGem, ItemIds.TOPAZGEM).getInt(ItemIds.TOPAZGEM_DEFAULT);
-			ItemIds.TOURMALINEGEM = config.getItem(Strings.tourmalineGem, ItemIds.TOURMALINEGEM).getInt(ItemIds.TOURMALINEGEM_DEFAULT);
+			ItemIds.AMETHYSTGEM = config.getItem(Strings.AMETHYSTGEM_NAME, ItemIds.AMETHYSTGEM).getInt(ItemIds.AMETHYSTGEM_DEFAULT);
+			ItemIds.AQUAMARINEGEM = config.getItem(Strings.AQUAMARINEGEM_NAME, ItemIds.AQUAMARINEGEM).getInt(ItemIds.AQUAMARINEGEM_DEFAULT);
+			ItemIds.CARNELIANGEM = config.getItem(Strings.CARNELIANGEM_NAME, ItemIds.CARNELIANGEM).getInt(ItemIds.CARNELIANGEM_DEFAULT);
+			ItemIds.GARNETGEM = config.getItem(Strings.GARNETGEM_NAME, ItemIds.GARNETGEM).getInt(ItemIds.GARNETGEM_DEFAULT);
+			ItemIds.HEMATITEGEM = config.getItem(Strings.HEMATITEGEM_NAME, ItemIds.HEMATITEGEM).getInt(ItemIds.HEMATITEGEM_DEFAULT);
+			ItemIds.HOWLITEGEM = config.getItem(Strings.HOWLITEGEM_NAME, ItemIds.HOWLITEGEM).getInt(ItemIds.HOWLITEGEM_DEFAULT);
+			ItemIds.MOUNTAINCRYSTALGEM = config.getItem(Strings.MOUNTAINCRYSTELGEM_NAME, ItemIds.MOUNTAINCRYSTALGEM).getInt(ItemIds.MOUNTAINCRYSTALGEM_DEFAULT);
+			ItemIds.ONYXGEM = config.getItem(Strings.ONYXGEM_NAME, ItemIds.ONYXGEM).getInt(ItemIds.ONYXGEM_DEFAULT);
+			ItemIds.OPALGEM = config.getItem(Strings.OPALGEM_NAME, ItemIds.OPALGEM).getInt(ItemIds.OPALGEM_DEFAULT);
+			ItemIds.PERIDOTGEM = config.getItem(Strings.PERIDOTGEM_NAME, ItemIds.PERIDOTGEM).getInt(ItemIds.PERIDOTGEM_DEFAULT);
+			ItemIds.RHODOCHROSITEGEM = config.getItem(Strings.RHODOCHROSITEGEM_NAME, ItemIds.RHODOCHROSITEGEM).getInt(ItemIds.RHODOCHROSITEGEM_DEFAULT);
+			ItemIds.SPHENEGEM = config.getItem(Strings.SPHENEGEM_NAME, ItemIds.SPHENEGEM).getInt(ItemIds.SPHENEGEM_DEFAULT);
+			ItemIds.SPINELGEM = config.getItem(Strings.SPINELGEM_NAME, ItemIds.SPINELGEM).getInt(ItemIds.SPINELGEM_DEFAULT);
+			ItemIds.TIGERSEYEGEM = config.getItem(Strings.TIGERSEYEGEM_NAME, ItemIds.TIGERSEYEGEM).getInt(ItemIds.TIGERSEYEGEM_DEFAULT);
+			ItemIds.TOPAZGEM = config.getItem(Strings.TOPAZGEM_NAME, ItemIds.TOPAZGEM).getInt(ItemIds.TOPAZGEM_DEFAULT);
+			ItemIds.TOURMALINEGEM = config.getItem(Strings.TOURMALINEGEM_NAME, ItemIds.TOURMALINEGEM).getInt(ItemIds.TOURMALINEGEM_DEFAULT);
 			
 		}
 		catch(Exception e) {

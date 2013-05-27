@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemTopazGem extends Item {
 	public ItemTopazGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.topazGem);
+		this.setUnlocalizedName(Strings.TOPAZGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

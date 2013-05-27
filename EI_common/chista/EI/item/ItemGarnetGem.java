@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemGarnetGem extends Item {
 	public ItemGarnetGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.garnetGem);
+		this.setUnlocalizedName(Strings.GARNETGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemSpheneGem extends Item {
 	public ItemSpheneGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.spheneGem);
+		this.setUnlocalizedName(Strings.SPHENEGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

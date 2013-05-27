@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemHowliteGem extends Item {
 	public ItemHowliteGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.howliteGem);
+		this.setUnlocalizedName(Strings.HOWLITEGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

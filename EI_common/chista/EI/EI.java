@@ -3,6 +3,7 @@ package chista.EI;
 import java.io.File;
 
 import net.minecraft.creativetab.CreativeTabs;
+import chista.EI.block.ModBlocks;
 import chista.EI.core.handler.ConfigurationHandler;
 import chista.EI.core.handler.LocalizationHandler;
 import chista.EI.core.proxy.CommonProxy;
@@ -10,6 +11,7 @@ import chista.EI.creativetab.CreativeTabEI;
 import chista.EI.item.ModItems;
 import chista.EI.lib.Reference;
 import chista.EI.ore.ModOres;
+import chista.EI.world.ModWorlds;
 import chista.EI.world.biome.ModBiomes;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -53,16 +55,17 @@ public class EI
     @PreInit
     public void preInit(FMLPreInitializationEvent event)
     {
-    	// Load all localization files and register names
+    	// Initialize localization
     	LocalizationHandler.loadLanguages();
     	
     	// Initialize the configuration file
     	ConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME + File.separator + Reference.MOD_ID + ".cfg"));
     	
-    	
-        ModOres.init();
-        ModItems.init();
-        ModBiomes.init();
+    	ModBlocks.init();	// Initialize blocks (portal)
+        ModOres.init();		// Initialize ores
+        ModItems.init();	// Initialize items
+        ModBiomes.init();	// Initialize Biomes
+        ModWorlds.init();	// Initialize Dimension
     }
     
     @Init

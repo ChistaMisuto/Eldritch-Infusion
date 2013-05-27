@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemPeridotGem extends Item {
 	public ItemPeridotGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.peridotGem);
+		this.setUnlocalizedName(Strings.PERIDOTGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

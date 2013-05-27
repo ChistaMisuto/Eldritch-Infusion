@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemTourmalineGem extends Item {
 	public ItemTourmalineGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.tourmalineGem);
+		this.setUnlocalizedName(Strings.TOURMALINEGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

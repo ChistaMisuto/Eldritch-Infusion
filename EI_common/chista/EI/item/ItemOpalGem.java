@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemOpalGem extends Item {
 	public ItemOpalGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.opalGem);
+		this.setUnlocalizedName(Strings.OPALGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

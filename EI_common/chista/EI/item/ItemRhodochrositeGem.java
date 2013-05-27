@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemRhodochrositeGem extends Item {
 	public ItemRhodochrositeGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.rhodochrositeGem);
+		this.setUnlocalizedName(Strings.RHODOCHROSITEGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

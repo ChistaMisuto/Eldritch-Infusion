@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemSpinelGem extends Item {
 	public ItemSpinelGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.spinelGem);
+		this.setUnlocalizedName(Strings.SPINELGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemOnyxGem extends Item {
 	public ItemOnyxGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.onyxGem);
+		this.setUnlocalizedName(Strings.ONYXGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

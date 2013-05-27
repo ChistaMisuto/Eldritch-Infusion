@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemAquamarineGem extends Item {
 	public ItemAquamarineGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.aquamarineGem);
+		this.setUnlocalizedName(Strings.AQUAMARINEGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

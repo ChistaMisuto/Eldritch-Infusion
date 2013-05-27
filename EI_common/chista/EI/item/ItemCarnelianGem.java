@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemCarnelianGem extends Item {
 	public ItemCarnelianGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.carnelianGem);
+		this.setUnlocalizedName(Strings.CARNELIANGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

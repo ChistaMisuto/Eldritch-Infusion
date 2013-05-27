@@ -11,7 +11,7 @@ import chista.EI.lib.Strings;
 public class ItemHematiteGem extends Item {
 	public ItemHematiteGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.hematiteGem);
+		this.setUnlocalizedName(Strings.HEMATITEGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

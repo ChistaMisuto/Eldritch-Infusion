@@ -20,20 +20,20 @@ public class Strings {
 	public static final String TOURMALINEORE_NAME      = "tourmalineOre";
 	
 	// Gems
-	public static final String amethystGem = "amethystGem";
-	public static final String aquamarineGem = "aquamarineGem";
-	public static final String carnelianGem = "carnelianGem";
-	public static final String garnetGem = "garnetGem";
-	public static final String hematiteGem = "hematiteGem";
-	public static final String howliteGem = "howliteGem";
-	public static final String mountainCrystalGem = "mountainCrystalGem";
-	public static final String onyxGem = "onyxGem";
-	public static final String opalGem = "opalGem";
-	public static final String peridotGem = "peridotGem";
-	public static final String rhodochrositeGem = "rhodochrositeGem";
-	public static final String spheneGem = "spheneGem";
-	public static final String spinelGem = "spinelGem";
-	public static final String tigersEyeGem = "tigersEyeGem";
-	public static final String topazGem = "topazGem";
-	public static final String tourmalineGem = "tourmalineGem";
+	public static final String AMETHYSTGEM_NAME = "amethystGem";
+	public static final String AQUAMARINEGEM_NAME = "aquamarineGem";
+	public static final String CARNELIANGEM_NAME = "carnelianGem";
+	public static final String GARNETGEM_NAME = "garnetGem";
+	public static final String HEMATITEGEM_NAME = "hematiteGem";
+	public static final String HOWLITEGEM_NAME = "howliteGem";
+	public static final String MOUNTAINCRYSTELGEM_NAME = "mountainCrystalGem";
+	public static final String ONYXGEM_NAME = "onyxGem";
+	public static final String OPALGEM_NAME = "opalGem";
+	public static final String PERIDOTGEM_NAME = "peridotGem";
+	public static final String RHODOCHROSITEGEM_NAME = "rhodochrositeGem";
+	public static final String SPHENEGEM_NAME = "spheneGem";
+	public static final String SPINELGEM_NAME = "spinelGem";
+	public static final String TIGERSEYEGEM_NAME = "tigersEyeGem";
+	public static final String TOPAZGEM_NAME = "topazGem";
+	public static final String TOURMALINEGEM_NAME = "tourmalineGem";
 }

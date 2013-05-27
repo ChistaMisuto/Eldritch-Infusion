@@ -44,21 +44,21 @@ public class ModItems {
 		tourmalineGem = new ItemTourmalineGem(ItemIds.TOURMALINEGEM);
 
 		// Register items
-		GameRegistry.registerItem(amethystGem, Strings.amethystGem);
-		GameRegistry.registerItem(aquamarineGem, Strings.aquamarineGem);
-		GameRegistry.registerItem(carnelianGem, Strings.carnelianGem);
-		GameRegistry.registerItem(garnetGem, Strings.garnetGem);
-		GameRegistry.registerItem(hematiteGem, Strings.hematiteGem);
-		GameRegistry.registerItem(howliteGem, Strings.howliteGem);
-		GameRegistry.registerItem(mountainCrystalGem, Strings.mountainCrystalGem);
-		GameRegistry.registerItem(onyxGem, Strings.onyxGem);
-		GameRegistry.registerItem(opalGem, Strings.opalGem);
-		GameRegistry.registerItem(peridotGem, Strings.peridotGem);
-		GameRegistry.registerItem(rhodochrositeGem, Strings.rhodochrositeGem);
-		GameRegistry.registerItem(spheneGem, Strings.spheneGem);
-		GameRegistry.registerItem(spinelGem, Strings.spinelGem);
-		GameRegistry.registerItem(tigersEyeGem, Strings.tigersEyeGem);
-		GameRegistry.registerItem(topazGem, Strings.topazGem);
-		GameRegistry.registerItem(tourmalineGem, Strings.tourmalineGem);
+		GameRegistry.registerItem(amethystGem, Strings.AMETHYSTGEM_NAME);
+		GameRegistry.registerItem(aquamarineGem, Strings.AQUAMARINEGEM_NAME);
+		GameRegistry.registerItem(carnelianGem, Strings.CARNELIANGEM_NAME);
+		GameRegistry.registerItem(garnetGem, Strings.GARNETGEM_NAME);
+		GameRegistry.registerItem(hematiteGem, Strings.HEMATITEGEM_NAME);
+		GameRegistry.registerItem(howliteGem, Strings.HOWLITEGEM_NAME);
+		GameRegistry.registerItem(mountainCrystalGem, Strings.MOUNTAINCRYSTELGEM_NAME);
+		GameRegistry.registerItem(onyxGem, Strings.ONYXGEM_NAME);
+		GameRegistry.registerItem(opalGem, Strings.OPALGEM_NAME);
+		GameRegistry.registerItem(peridotGem, Strings.PERIDOTGEM_NAME);
+		GameRegistry.registerItem(rhodochrositeGem, Strings.RHODOCHROSITEGEM_NAME);
+		GameRegistry.registerItem(spheneGem, Strings.SPHENEGEM_NAME);
+		GameRegistry.registerItem(spinelGem, Strings.SPINELGEM_NAME);
+		GameRegistry.registerItem(tigersEyeGem, Strings.TIGERSEYEGEM_NAME);
+		GameRegistry.registerItem(topazGem, Strings.TOPAZGEM_NAME);
+		GameRegistry.registerItem(tourmalineGem, Strings.TOURMALINEGEM_NAME);
 	}
 }

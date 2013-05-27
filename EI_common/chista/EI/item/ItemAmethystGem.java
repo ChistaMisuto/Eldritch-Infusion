@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 public class ItemAmethystGem extends Item {
 	public ItemAmethystGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.amethystGem);
+		this.setUnlocalizedName(Strings.AMETHYSTGEM_NAME);
 		
 		this.setCreativeTab(EI.creativeTabEI);
 	}
