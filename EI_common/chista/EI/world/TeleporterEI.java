@@ -21,6 +21,7 @@ public class TeleporterEI extends Teleporter {
 	private final Random random;
 	/** Stores successful portal placement locations for rapid lookup. */
 	private final LongHashMap destinationCoordinateCache = new LongHashMap();
+	
 	/**
 	 * A list of valid keys for the destinationCoordainteCache. These are based
 	 * on the X & Z of the players initial location.
@@ -36,24 +37,24 @@ public class TeleporterEI extends Teleporter {
 	/**
 	 * Place an entity in a nearby portal, creating one if necessary.
 	 */
-	public void placeInPortal(Entity par1Entity, double par2, double par4, double par6, float par8) {
+	public void placeInPortal(Entity player, double x, double y, double z, float rotationYaw) {
 		if (this.worldServerInstance.provider.dimensionId != 1) {
-			if (!this.placeInExistingPortal(par1Entity, par2, par4, par6, par8)) {
-				this.makePortal(par1Entity);
-				this.placeInExistingPortal(par1Entity, par2, par4, par6, par8);
+			if (!this.placeInExistingPortal(player, x, y, z, rotationYaw)) {
+				this.makePortal(player);
+				this.placeInExistingPortal(player, x, y, z, rotationYaw);
 			}
 		} else {
-			int i = MathHelper.floor_double(par1Entity.posX);
-			int j = MathHelper.floor_double(par1Entity.posY) - 1;
-			int k = MathHelper.floor_double(par1Entity.posZ);
+			int posX = MathHelper.floor_double(player.posX);
+			int posY = MathHelper.floor_double(player.posY) - 1;
+			int posZ = MathHelper.floor_double(player.posZ);
 			byte b0 = 1;
 			byte b1 = 0;
 			for (int l = -2; l <= 2; ++l) {
 				for (int i1 = -2; i1 <= 2; ++i1) {
 					for (int j1 = -1; j1 < 3; ++j1) {
-						int k1 = i + i1 * b0 + l * b1;
-						int l1 = j + j1;
-						int i2 = k + i1 * b1 - l * b0;
+						int k1 = posX + i1 * b0 + l * b1;
+						int l1 = posY + j1;
+						int i2 = posZ + i1 * b1 - l * b0;
 						boolean flag = j1 < 0;
 
 						/** change this block **/
@@ -61,22 +62,22 @@ public class TeleporterEI extends Teleporter {
 					}
 				}
 			}
-			par1Entity.setLocationAndAngles((double) i, (double) j, (double) k, par1Entity.rotationYaw, 0.0F);
-			par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
+			player.setLocationAndAngles((double) posX, (double) posY, (double) posZ, player.rotationYaw, 0.0F);
+			player.motionX = player.motionY = player.motionZ = 0.0D;
 		}
 	}
 
 	/**
 	 * Place an entity in a nearby portal which already exists.
 	 */
-	public boolean placeInExistingPortal(Entity par1Entity, double par2, double par4, double par6, float par8) {
+	public boolean placeInExistingPortal(Entity player, double x, double y, double z, float rotationYaw) {
 		short short1 = 128;
 		double d3 = -1.0D;
 		int i = 0;
 		int j = 0;
 		int k = 0;
-		int l = MathHelper.floor_double(par1Entity.posX);
-		int i1 = MathHelper.floor_double(par1Entity.posZ);
+		int l = MathHelper.floor_double(player.posX);
+		int i1 = MathHelper.floor_double(player.posZ);
 		long j1 = ChunkCoordIntPair.chunkXZ2Int(l, i1);
 		boolean flag = true;
 		double d4;
@@ -91,9 +92,9 @@ public class TeleporterEI extends Teleporter {
 			flag = false;
 		} else {
 			for (k1 = l - short1; k1 <= l + short1; ++k1) {
-				double d5 = (double) k1 + 0.5D - par1Entity.posX;
+				double d5 = (double) k1 + 0.5D - player.posX;
 				for (int l1 = i1 - short1; l1 <= i1 + short1; ++l1) {
-					double d6 = (double) l1 + 0.5D - par1Entity.posZ;
+					double d6 = (double) l1 + 0.5D - player.posZ;
 					for (int i2 = this.worldServerInstance.getActualHeight() - 1; i2 >= 0; --i2) {
 						/** change this block **/
 						if (this.worldServerInstance.getBlockId(k1, i2, l1) == Block.blockRedstone.blockID) {
@@ -101,7 +102,7 @@ public class TeleporterEI extends Teleporter {
 							while (this.worldServerInstance.getBlockId(k1, i2 - 1, l1) == Block.blockRedstone.blockID) {
 								--i2;
 							}
-							d4 = (double) i2 + 0.5D - par1Entity.posY;
+							d4 = (double) i2 + 0.5D - player.posY;
 							double d7 = d5 * d5 + d4 * d4 + d6 * d6;
 							if (d3 < 0.0D || d7 < d3) {
 								d3 = d7;
@@ -139,7 +140,7 @@ public class TeleporterEI extends Teleporter {
 			if (this.worldServerInstance.getBlockId(i, j, k + 1) == Block.blockRedstone.blockID) {
 				j2 = 1;
 			}
-			int k2 = par1Entity.getTeleportDirection();
+			int k2 = player.getTeleportDirection();
 			if (j2 > -1) {
 				int l2 = Direction.rotateLeft[j2];
 				int i3 = Direction.offsetX[j2];
@@ -190,27 +191,27 @@ public class TeleporterEI extends Teleporter {
 					f5 = -1.0F;
 					f6 = 1.0F;
 				}
-				double d10 = par1Entity.motionX;
-				double d11 = par1Entity.motionZ;
-				par1Entity.motionX = d10 * (double) f3 + d11 * (double) f6;
-				par1Entity.motionZ = d10 * (double) f5 + d11 * (double) f4;
-				par1Entity.rotationYaw = par8 - (float) (k2 * 90) + (float) (j2 * 90);
+				double d10 = player.motionX;
+				double d11 = player.motionZ;
+				player.motionX = d10 * (double) f3 + d11 * (double) f6;
+				player.motionZ = d10 * (double) f5 + d11 * (double) f4;
+				player.rotationYaw = rotationYaw - (float) (k2 * 90) + (float) (j2 * 90);
 			} else {
-				par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
+				player.motionX = player.motionY = player.motionZ = 0.0D;
 			}
-			par1Entity.setLocationAndAngles(d8, d9, d4, par1Entity.rotationYaw, par1Entity.rotationPitch);
+			player.setLocationAndAngles(d8, d9, d4, player.rotationYaw, player.rotationPitch);
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public boolean makePortal(Entity par1Entity) {
+	public boolean makePortal(Entity player) {
 		byte b0 = 16;
 		double d0 = -1.0D;
-		int i = MathHelper.floor_double(par1Entity.posX);
-		int j = MathHelper.floor_double(par1Entity.posY);
-		int k = MathHelper.floor_double(par1Entity.posZ);
+		int i = MathHelper.floor_double(player.posX);
+		int j = MathHelper.floor_double(player.posY);
+		int k = MathHelper.floor_double(player.posZ);
 		int l = i;
 		int i1 = j;
 		int j1 = k;
@@ -232,9 +233,9 @@ public class TeleporterEI extends Teleporter {
 		double d3;
 		double d4;
 		for (i2 = i - b0; i2 <= i + b0; ++i2) {
-			d1 = (double) i2 + 0.5D - par1Entity.posX;
+			d1 = (double) i2 + 0.5D - player.posX;
 			for (j2 = k - b0; j2 <= k + b0; ++j2) {
-				d2 = (double) j2 + 0.5D - par1Entity.posZ;
+				d2 = (double) j2 + 0.5D - player.posZ;
 				label274: for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2) {
 					if (this.worldServerInstance.isAirBlock(i2, k2, j2)) {
 						while (k2 > 0 && this.worldServerInstance.isAirBlock(i2, k2 - 1, j2)) {
@@ -259,7 +260,7 @@ public class TeleporterEI extends Teleporter {
 									}
 								}
 							}
-							d4 = (double) k2 + 0.5D - par1Entity.posY;
+							d4 = (double) k2 + 0.5D - player.posY;
 							d3 = d1 * d1 + d4 * d4 + d2 * d2;
 							if (d0 < 0.0D || d3 < d0) {
 								d0 = d3;
@@ -275,9 +276,9 @@ public class TeleporterEI extends Teleporter {
 		}
 		if (d0 < 0.0D) {
 			for (i2 = i - b0; i2 <= i + b0; ++i2) {
-				d1 = (double) i2 + 0.5D - par1Entity.posX;
+				d1 = (double) i2 + 0.5D - player.posX;
 				for (j2 = k - b0; j2 <= k + b0; ++j2) {
-					d2 = (double) j2 + 0.5D - par1Entity.posZ;
+					d2 = (double) j2 + 0.5D - player.posZ;
 					label222: for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2) {
 						if (this.worldServerInstance.isAirBlock(i2, k2, j2)) {
 							while (k2 > 0 && this.worldServerInstance.isAirBlock(i2, k2 - 1, j2)) {
@@ -296,7 +297,7 @@ public class TeleporterEI extends Teleporter {
 										}
 									}
 								}
-								d4 = (double) k2 + 0.5D - par1Entity.posY;
+								d4 = (double) k2 + 0.5D - player.posY;
 								d3 = d1 * d1 + d4 * d4 + d2 * d2;
 								if (d0 < 0.0D || d3 < d0) {
 									d0 = d3;

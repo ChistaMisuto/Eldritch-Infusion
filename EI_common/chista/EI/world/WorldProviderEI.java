@@ -1,23 +1,20 @@
 package chista.EI.world;
 
-import chista.EI.world.biome.ModBiomes;
-import chista.EI.world.biome.WorldChunkManagerEI;
-import chista.EI.world.gen.ChunkProviderEI;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.DimensionManager;
+import chista.EI.world.biome.WorldChunkManagerEI;
+import chista.EI.world.gen.ChunkProviderEI;
 
 public class WorldProviderEI extends WorldProvider {
 	
 	public void registerWorldChunkManager() {
-		this.worldChunkMgr = new WorldChunkManagerEI(ModBiomes.bioluminescentSwamp, 0.4F, 0.1F);
+		this.worldChunkMgr = new WorldChunkManagerEI(worldObj.getSeed(), terrainType);
 		this.hasNoSky = false;
 	}
 	
 	@Override
 	public String getDimensionName() {
-		// TODO Auto-generated method stub
 		return "Ancient World";
 	}
 	

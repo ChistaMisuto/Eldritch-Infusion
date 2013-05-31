@@ -10,7 +10,7 @@ public class BiomeGenBiolSwamp extends BiomeGenBase {
 		this.setBiomeName("Bioluminescent Swamp");
 		this.setMinMaxHeight(-0.2F, 0.1F);
 		this.setTemperatureRainfall(0.8F, 0.9F);
-		topBlock = (byte) Block.beacon.blockID;
+		topBlock = (byte) Block.grass.blockID;
 		fillerBlock = (byte) Block.dirt.blockID;
 
 	}

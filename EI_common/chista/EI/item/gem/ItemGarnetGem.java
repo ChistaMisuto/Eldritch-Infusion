@@ -1,4 +1,4 @@
-package chista.EI.item;
+package chista.EI.item.gem;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -8,10 +8,10 @@ import chista.EI.EI;
 import chista.EI.lib.Reference;
 import chista.EI.lib.Strings;
 
-public class ItemOnyxGem extends Item {
-	public ItemOnyxGem(int id) {
+public class ItemGarnetGem extends Item {
+	public ItemGarnetGem(int id) {
 		super(id);
-		this.setUnlocalizedName(Strings.ONYXGEM_NAME);
+		this.setUnlocalizedName(Strings.GARNETGEM_NAME);
 
 		this.setCreativeTab(EI.creativeTabEI);
 	}

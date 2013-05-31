@@ -3,7 +3,7 @@ package chista.EI.ore;
 import java.util.Random;
 
 import net.minecraft.block.material.Material;
-import chista.EI.item.ModItems;
+import chista.EI.item.gem.ModGems;
 import chista.EI.lib.Strings;
 
 public class OreGarnet extends ModOreBase {
@@ -14,6 +14,6 @@ public class OreGarnet extends ModOreBase {
 
 	@Override
 	public int idDropped(int par1, Random rand, int par2) {
-		return ModItems.garnetGem.itemID;
+		return ModGems.garnetGem.itemID;
 	}
 }

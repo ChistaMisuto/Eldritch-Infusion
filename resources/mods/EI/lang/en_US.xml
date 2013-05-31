@@ -3,6 +3,12 @@
 <properties version="1.0">
 	<comment>English (en_US) Localization File</comment>
 	<!-- Blocks -->
+	<entry key="tile.dreamBed.name">Dreamer's bed</entry>
+
+	<!-- Items -->
+	<entry key="item.dreamBedItem.name">Dreamers bed</entry>
+
+	<!-- Ores -->
 	<entry key="tile.amethystOre.name">Amethyst ore</entry>
 	<entry key="tile.aquamarineOre.name">Aquamarine ore</entry>
 	<entry key="tile.carnelianOre.name">Carnelian</entry>
@@ -20,7 +26,7 @@
 	<entry key="tile.topazOre.name">Topaz ore</entry>
 	<entry key="tile.tourmalineOre.name">Tourmaline ore</entry>
 
-	<!-- Items -->
+	<!-- Gems -->
 	<entry key="item.amethystGem.name">Amethyst</entry>
 	<entry key="item.aquamarineGem.name">Aquamarine</entry>
 	<entry key="item.carnelianGem.name">Carnelian</entry>
@@ -38,6 +44,19 @@
 	<entry key="item.topazGem.name">Topaz</entry>
 	<entry key="item.tourmalineGem.name">Tourmaline</entry>
 
+	<!-- Gem storage blocks -->
+	<entry key="tile.amethystBlock.name">Amethyst Block</entry>
+	<entry key="tile.aquamarineBlock.name">Aquamarine Block</entry>
+	<entry key="tile.carnelianBlock.name">Carnelian Block</entry>
+	<entry key="tile.garnetBlock.name">Garnet Block</entry>
+	<entry key="tile.hematiteBlock.name">Hematite Block</entry>
+	<entry key="tile.howliteBlock.name">Howlite Block</entry>
+	<entry key="tile.mountainCrystalBlock.name">Mountain Crystal Block</entry>
+	<entry key="tile.onyxBlock.name">Onyx Block</entry>
+
 	<!-- Creative tab -->
 	<entry key="itemGroup.EI">Eldritch Infusion</entry>
+	
+	<!-- Portal -->
+	<entry key="tile.portalBlockEI.name">Portal EI</entry>
 </properties>

@@ -1,6 +1,10 @@
 package chista.EI.lib;
 
 public class ItemIds {
+	// Items
+	public static final int DREAMBEDITEM = 8816;
+	
+	// Gem defaults
 	public static final int AMETHYSTGEM_DEFAULT = 8800;
 	public static final int AQUAMARINEGEM_DEFAULT = 8801;
 	public static final int CARNELIANGEM_DEFAULT = 8802;
@@ -18,6 +22,7 @@ public class ItemIds {
 	public static final int TOPAZGEM_DEFAULT = 8814;
 	public static final int TOURMALINEGEM_DEFAULT = 8815;
 
+	// Gems (filled by config)
 	public static int AMETHYSTGEM;
 	public static int AQUAMARINEGEM;
 	public static int CARNELIANGEM;

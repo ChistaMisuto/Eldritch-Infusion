@@ -14,11 +14,23 @@ public class ModBiomes {
 	public static BiomeGenBase coralReef;
 
 	public static void init() {
-		ancientBioluminescentForest = new BiomeGenAncBiolForest(BiomeIds.ABIOFOREST);
+		// Ancient biomes (have temporary top blocks for easy recognition)
+		ancientBioluminescentForest = new BiomeGenAncBiolForest(BiomeIds.ABIOFOREST);	// Iron
+		ancientBioluminescentJungle = new BiomeGenAncBiolJungle(BiomeIds.ABIOJUNGLE);	// Diamond
+		ancientBioluminescentPlains = new BiomeGenAncBiolPlains(BiomeIds.ABIOPLAINS);	// Emerald
+		ancientBioluminescentSwamp = new BiomeGenAncBiolSwamp(BiomeIds.ABIOSWAMP);		// Gold
+		
+		// Normal biomes
 		bioluminescentSwamp = new BiomeGenBiolSwamp(BiomeIds.BIOSWAMP);
 		bioluminescentJungle = new BiomeGenBiolJungle(BiomeIds.BIOJUNGLE);
 		coralReef = new BiomeGenCoralReef(BiomeIds.CORALREEF);
 
+		// addBiome is overworld only
+//		GameRegistry.addBiome(ancientBioluminescentForest);
+//		GameRegistry.addBiome(ancientBioluminescentJungle);
+//		GameRegistry.addBiome(ancientBioluminescentPlains);
+//		GameRegistry.addBiome(ancientBioluminescentSwamp);
+		
 		GameRegistry.addBiome(bioluminescentJungle);
 		GameRegistry.addBiome(bioluminescentSwamp);
 		GameRegistry.addBiome(coralReef);

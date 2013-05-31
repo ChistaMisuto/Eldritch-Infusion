@@ -2,7 +2,7 @@ package chista.EI.creativetab;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import chista.EI.item.ModItems;
+import chista.EI.item.gem.ModGems;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class CreativeTabEI extends CreativeTabs {
@@ -14,6 +14,6 @@ public class CreativeTabEI extends CreativeTabs {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getTabIconItemIndex() {
-		return ModItems.topazGem.itemID;
+		return ModGems.topazGem.itemID;
 	} 
 }

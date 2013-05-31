@@ -12,6 +12,5 @@ public class BiomeGenBiolJungle extends BiomeGenBase {
 		this.setMinMaxHeight(0.2F, 0.4F);
 		topBlock = (byte) Block.grass.blockID;
 		fillerBlock = (byte) Block.dirt.blockID;
-
 	}
 }

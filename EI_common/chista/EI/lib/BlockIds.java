@@ -2,6 +2,19 @@ package chista.EI.lib;
 
 public class BlockIds {
 	
+	// Blocks
+	public static final int DREAMBED = 516;
+	
+	// Gem storage block IDs
+	public static final int AMETHYSTSTORAGEBLOCK_DEFAULT = 600;
+	public static final int AQUAMARINEORAGEBLOCK_DEFAULT = 601;
+	public static final int CARNELIANORAGEBLOCK_DEFAULT = 602;
+	public static final int GARNETSTORAGEBLOCK_DEFAULT = 603;
+	public static final int HEMATITESTORAGEBLOCK_DEFAULT = 604;
+	public static final int HOWLITESTORAGEBLOCK_DEFAULT = 605;
+	public static final int MOUNTAINCRYSTALSTORAGEBLOCK_DEFAULT = 606;
+	public static final int ONYXSTORAGEBLOCK_DEFAULT = 607;
+	
 	// Default Ore block IDs
 	public static final int AMETHYSTOREBLOCK_DEFAULT = 500;
 	public static final int AQUAMARINEOREBLOCK_DEFAULT = 501;
