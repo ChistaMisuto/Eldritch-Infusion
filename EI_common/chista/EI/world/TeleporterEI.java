@@ -14,14 +14,17 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
+import chista.EI.block.ModBlocks;
+import cpw.mods.fml.common.FMLLog;
 
 public class TeleporterEI extends Teleporter {
 	private final WorldServer worldServerInstance;
 	/** A private Random() function in Teleporter */
 	private final Random random;
+	
 	/** Stores successful portal placement locations for rapid lookup. */
 	private final LongHashMap destinationCoordinateCache = new LongHashMap();
-	
+
 	/**
 	 * A list of valid keys for the destinationCoordainteCache. These are based
 	 * on the X & Z of the players initial location.
@@ -38,31 +41,21 @@ public class TeleporterEI extends Teleporter {
 	 * Place an entity in a nearby portal, creating one if necessary.
 	 */
 	public void placeInPortal(Entity player, double x, double y, double z, float rotationYaw) {
-		if (this.worldServerInstance.provider.dimensionId != 1) {
+		
+//		FMLLog.info("x: "+x+ "  y:"+y+ "  z: "+z, new Object[0]);
+		
+		if (this.worldServerInstance.provider.dimensionId != 0) {
+			
 			if (!this.placeInExistingPortal(player, x, y, z, rotationYaw)) {
 				this.makePortal(player);
 				this.placeInExistingPortal(player, x, y, z, rotationYaw);
 			}
+			
 		} else {
-			int posX = MathHelper.floor_double(player.posX);
-			int posY = MathHelper.floor_double(player.posY) - 1;
-			int posZ = MathHelper.floor_double(player.posZ);
-			byte b0 = 1;
-			byte b1 = 0;
-			for (int l = -2; l <= 2; ++l) {
-				for (int i1 = -2; i1 <= 2; ++i1) {
-					for (int j1 = -1; j1 < 3; ++j1) {
-						int k1 = posX + i1 * b0 + l * b1;
-						int l1 = posY + j1;
-						int i2 = posZ + i1 * b1 - l * b0;
-						boolean flag = j1 < 0;
-
-						/** change this block **/
-						this.worldServerInstance.setBlock(k1, l1, i2, flag ? Block.blockDiamond.blockID : 0);
-					}
-				}
-			}
-			player.setLocationAndAngles((double) posX, (double) posY, (double) posZ, player.rotationYaw, 0.0F);
+			
+			// Check if there is enough height to spawn
+			
+			player.setLocationAndAngles((double) x, (double) y, (double) z, player.rotationYaw, 0.0F);
 			player.motionX = player.motionY = player.motionZ = 0.0D;
 		}
 	}
@@ -73,71 +66,92 @@ public class TeleporterEI extends Teleporter {
 	public boolean placeInExistingPortal(Entity player, double x, double y, double z, float rotationYaw) {
 		short short1 = 128;
 		double d3 = -1.0D;
-		int i = 0;
-		int j = 0;
-		int k = 0;
-		int l = MathHelper.floor_double(player.posX);
-		int i1 = MathHelper.floor_double(player.posZ);
-		long j1 = ChunkCoordIntPair.chunkXZ2Int(l, i1);
+		
+		int portalStartX = 0;
+		int portalStartY = 0;
+		int portalStartZ = 0;
+		
+		int playerPosX = MathHelper.floor_double(player.posX);
+		int playerPosY = MathHelper.floor_double(player.posZ);
+		
+		long chunkCoordIntPair = ChunkCoordIntPair.chunkXZ2Int(playerPosX, playerPosY);
+		
 		boolean flag = true;
-		double d4;
-		int k1;
-		if (this.destinationCoordinateCache.containsItem(j1)) {
-			PortalPosition portalposition = (PortalPosition) this.destinationCoordinateCache.getValueByKey(j1);
+		double chunkY;
+		int posX;
+		
+		if (this.destinationCoordinateCache.containsItem(chunkCoordIntPair)) {
+			
+			FMLLog.info("this.destinationCoordinateCache.containsItem(j1) = true!", new Object[0]);
+			
+			PortalPositionEI portalposition = (PortalPositionEI) this.destinationCoordinateCache.getValueByKey(chunkCoordIntPair);
 			d3 = 0.0D;
-			i = portalposition.posX;
-			j = portalposition.posY;
-			k = portalposition.posZ;
+			portalStartX = portalposition.posX;
+			portalStartY = portalposition.posY;
+			portalStartZ = portalposition.posZ;
 			portalposition.lastUpdateTime = this.worldServerInstance.getTotalWorldTime();
 			flag = false;
+			
 		} else {
-			for (k1 = l - short1; k1 <= l + short1; ++k1) {
-				double d5 = (double) k1 + 0.5D - player.posX;
-				for (int l1 = i1 - short1; l1 <= i1 + short1; ++l1) {
-					double d6 = (double) l1 + 0.5D - player.posZ;
-					for (int i2 = this.worldServerInstance.getActualHeight() - 1; i2 >= 0; --i2) {
-						/** change this block **/
-						if (this.worldServerInstance.getBlockId(k1, i2, l1) == Block.blockRedstone.blockID) {
-							/** change this block **/
-							while (this.worldServerInstance.getBlockId(k1, i2 - 1, l1) == Block.blockRedstone.blockID) {
-								--i2;
+			// Portal has not been found
+			
+			for (posX = playerPosX - short1; posX <= playerPosX + short1; ++posX) {
+				// original D5
+				double chunkX = (double) posX + 0.5D - player.posX;
+				
+				for (int posY = playerPosY - short1; posY <= playerPosY + short1; ++posY) {
+					// origianl D6
+					double chunkZ = (double) posY + 0.5D - player.posZ;
+					
+					for (int height = this.worldServerInstance.getActualHeight() - 1; height >= 0; --height) {
+						
+						
+						if (this.worldServerInstance.getBlockId(posX, height, posY) == Block.blockRedstone.blockID) {
+							
+							while (this.worldServerInstance.getBlockId(posX, height - 1, posY) == Block.blockRedstone.blockID) {
+								--height;
 							}
-							d4 = (double) i2 + 0.5D - player.posY;
-							double d7 = d5 * d5 + d4 * d4 + d6 * d6;
+							
+							// original D4
+							chunkY = (double) height + 0.5D - player.posY;
+							double d7 = chunkX * chunkX + chunkY * chunkY + chunkZ * chunkZ;
 							if (d3 < 0.0D || d7 < d3) {
 								d3 = d7;
-								i = k1;
-								j = i2;
-								k = l1;
+								FMLLog.info("d7="+d7, new Object[0]);
+								portalStartX = posX;
+								portalStartY = height;
+								portalStartZ = posY;
 							}
 						}
 					}
 				}
 			}
 		}
+		
+		
 		if (d3 >= 0.0D) {
 			if (flag) {
-				this.destinationCoordinateCache.add(j1, new PortalPositionEI(this, i, j, k, this.worldServerInstance.getTotalWorldTime()));
-				this.destinationCoordinateKeys.add(Long.valueOf(j1));
+				this.destinationCoordinateCache.add(chunkCoordIntPair, new PortalPositionEI(this, portalStartX, portalStartY, portalStartZ, this.worldServerInstance.getTotalWorldTime()));
+				this.destinationCoordinateKeys.add(Long.valueOf(chunkCoordIntPair));
 			}
-			double d8 = (double) i + 0.5D;
-			double d9 = (double) j + 0.5D;
-			d4 = (double) k + 0.5D;
+			double d8 = (double) portalStartX + 0.5D;
+			double d9 = (double) portalStartY + 0.5D;
+			chunkY = (double) portalStartZ + 0.5D;
 			int j2 = -1;
-			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i - 1, j, k) == Block.blockRedstone.blockID) {
+			
+			if (this.worldServerInstance.getBlockId(portalStartX - 1, portalStartY, portalStartZ) == Block.blockRedstone.blockID) {
 				j2 = 2;
 			}
-			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i + 1, j, k) == Block.blockRedstone.blockID) {
+			
+			if (this.worldServerInstance.getBlockId(portalStartX + 1, portalStartY, portalStartZ) == Block.blockRedstone.blockID) {
 				j2 = 0;
 			}
-			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i, j, k - 1) == Block.blockRedstone.blockID) {
+			
+			if (this.worldServerInstance.getBlockId(portalStartX, portalStartY, portalStartZ - 1) == Block.blockRedstone.blockID) {
 				j2 = 3;
 			}
-			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i, j, k + 1) == Block.blockRedstone.blockID) {
+			
+			if (this.worldServerInstance.getBlockId(portalStartX, portalStartY, portalStartZ + 1) == Block.blockRedstone.blockID) {
 				j2 = 1;
 			}
 			int k2 = player.getTeleportDirection();
@@ -147,8 +161,8 @@ public class TeleporterEI extends Teleporter {
 				int j3 = Direction.offsetZ[j2];
 				int k3 = Direction.offsetX[l2];
 				int l3 = Direction.offsetZ[l2];
-				boolean flag1 = !this.worldServerInstance.isAirBlock(i + i3 + k3, j, k + j3 + l3) || !this.worldServerInstance.isAirBlock(i + i3 + k3, j + 1, k + j3 + l3);
-				boolean flag2 = !this.worldServerInstance.isAirBlock(i + i3, j, k + j3) || !this.worldServerInstance.isAirBlock(i + i3, j + 1, k + j3);
+				boolean flag1 = !this.worldServerInstance.isAirBlock(portalStartX + i3 + k3, portalStartY, portalStartZ + j3 + l3) || !this.worldServerInstance.isAirBlock(portalStartX + i3 + k3, portalStartY + 1, portalStartZ + j3 + l3);
+				boolean flag2 = !this.worldServerInstance.isAirBlock(portalStartX + i3, portalStartY, portalStartZ + j3) || !this.worldServerInstance.isAirBlock(portalStartX + i3, portalStartY + 1, portalStartZ + j3);
 				if (flag1 && flag2) {
 					j2 = Direction.rotateOpposite[j2];
 					l2 = Direction.rotateOpposite[l2];
@@ -156,12 +170,12 @@ public class TeleporterEI extends Teleporter {
 					j3 = Direction.offsetZ[j2];
 					k3 = Direction.offsetX[l2];
 					l3 = Direction.offsetZ[l2];
-					k1 = i - k3;
+					posX = portalStartX - k3;
 					d8 -= (double) k3;
-					int i4 = k - l3;
-					d4 -= (double) l3;
-					flag1 = !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j, i4 + j3 + l3) || !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j + 1, i4 + j3 + l3);
-					flag2 = !this.worldServerInstance.isAirBlock(k1 + i3, j, i4 + j3) || !this.worldServerInstance.isAirBlock(k1 + i3, j + 1, i4 + j3);
+					int i4 = portalStartZ - l3;
+					chunkY -= (double) l3;
+					flag1 = !this.worldServerInstance.isAirBlock(posX + i3 + k3, portalStartY, i4 + j3 + l3) || !this.worldServerInstance.isAirBlock(posX + i3 + k3, portalStartY + 1, i4 + j3 + l3);
+					flag2 = !this.worldServerInstance.isAirBlock(posX + i3, portalStartY, i4 + j3) || !this.worldServerInstance.isAirBlock(posX + i3, portalStartY + 1, i4 + j3);
 				}
 				float f1 = 0.5F;
 				float f2 = 0.5F;
@@ -173,7 +187,7 @@ public class TeleporterEI extends Teleporter {
 					f2 = 0.0F;
 				}
 				d8 += (double) ((float) k3 * f1 + f2 * (float) i3);
-				d4 += (double) ((float) l3 * f1 + f2 * (float) j3);
+				chunkY += (double) ((float) l3 * f1 + f2 * (float) j3);
 				float f3 = 0.0F;
 				float f4 = 0.0F;
 				float f5 = 0.0F;
@@ -199,19 +213,19 @@ public class TeleporterEI extends Teleporter {
 			} else {
 				player.motionX = player.motionY = player.motionZ = 0.0D;
 			}
-			player.setLocationAndAngles(d8, d9, d4, player.rotationYaw, player.rotationPitch);
+			player.setLocationAndAngles(d8, d9, chunkY, player.rotationYaw, player.rotationPitch);
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public boolean makePortal(Entity player) {
+	public boolean makePortal(Entity par1Entity) {
 		byte b0 = 16;
 		double d0 = -1.0D;
-		int i = MathHelper.floor_double(player.posX);
-		int j = MathHelper.floor_double(player.posY);
-		int k = MathHelper.floor_double(player.posZ);
+		int i = MathHelper.floor_double(par1Entity.posX);
+		int j = MathHelper.floor_double(par1Entity.posY);
+		int k = MathHelper.floor_double(par1Entity.posZ);
 		int l = i;
 		int i1 = j;
 		int j1 = k;
@@ -226,110 +240,103 @@ public class TeleporterEI extends Teleporter {
 		int i3;
 		int j3;
 		int k3;
-		int l3;
 		int i4;
-		int j4;
-		int k4;
 		double d3;
 		double d4;
+
 		for (i2 = i - b0; i2 <= i + b0; ++i2) {
-			d1 = (double) i2 + 0.5D - player.posX;
+			d1 = (double) i2 + 0.5D - par1Entity.posX;
+
 			for (j2 = k - b0; j2 <= k + b0; ++j2) {
-				d2 = (double) j2 + 0.5D - player.posZ;
-				label274: for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2) {
+				d2 = (double) j2 + 0.5D - par1Entity.posZ;
+
+				k2 = this.worldServerInstance.getActualHeight() - 1;
+				if (this.worldServerInstance.isAirBlock(i2, k2, j2)) {
+					while (k2 > 0 && this.worldServerInstance.isAirBlock(i2, k2 - 1, j2)) {
+						--k2;
+					}
+
+					for (i3 = l1; i3 < l1 + 4; ++i3) {
+						l2 = i3 % 2;
+						k3 = 1 - l2;
+
+						if (i3 % 4 >= 2) {
+							l2 = -l2;
+							k3 = -k3;
+						}
+
+						d4 = (double) k2 + 0.5D - par1Entity.posY;
+						d3 = d1 * d1 + d4 * d4 + d2 * d2;
+
+						if (d0 < 0.0D || d3 < d0) {
+							d0 = d3;
+							l = i2;
+							i1 = k2;
+							j1 = j2;
+							k1 = i3 % 4;
+						}
+					}
+				}
+			}
+		}
+
+		if (d0 < 0.0D) {
+			for (i2 = i - b0; i2 <= i + b0; ++i2) {
+				d1 = (double) i2 + 0.5D - par1Entity.posX;
+
+				for (j2 = k - b0; j2 <= k + b0; ++j2) {
+					d2 = (double) j2 + 0.5D - par1Entity.posZ;
+
+					k2 = this.worldServerInstance.getActualHeight() - 1;
 					if (this.worldServerInstance.isAirBlock(i2, k2, j2)) {
 						while (k2 > 0 && this.worldServerInstance.isAirBlock(i2, k2 - 1, j2)) {
 							--k2;
 						}
-						for (i3 = l1; i3 < l1 + 4; ++i3) {
+
+						for (i3 = l1; i3 < l1 + 2; ++i3) {
 							l2 = i3 % 2;
 							k3 = 1 - l2;
-							if (i3 % 4 >= 2) {
-								l2 = -l2;
-								k3 = -k3;
-							}
-							for (j3 = 0; j3 < 3; ++j3) {
-								for (i4 = 0; i4 < 4; ++i4) {
-									for (l3 = -1; l3 < 4; ++l3) {
-										k4 = i2 + (i4 - 1) * l2 + j3 * k3;
-										j4 = k2 + l3;
-										int l4 = j2 + (i4 - 1) * k3 - j3 * l2;
-										if (l3 < 0 && !this.worldServerInstance.getBlockMaterial(k4, j4, l4).isSolid() || l3 >= 0 && !this.worldServerInstance.isAirBlock(k4, j4, l4)) {
-											continue label274;
-										}
-									}
-								}
-							}
-							d4 = (double) k2 + 0.5D - player.posY;
+
+							d4 = (double) k2 + 0.5D - par1Entity.posY;
 							d3 = d1 * d1 + d4 * d4 + d2 * d2;
+
 							if (d0 < 0.0D || d3 < d0) {
 								d0 = d3;
 								l = i2;
 								i1 = k2;
 								j1 = j2;
-								k1 = i3 % 4;
+								k1 = i3 % 2;
 							}
 						}
 					}
 				}
 			}
 		}
-		if (d0 < 0.0D) {
-			for (i2 = i - b0; i2 <= i + b0; ++i2) {
-				d1 = (double) i2 + 0.5D - player.posX;
-				for (j2 = k - b0; j2 <= k + b0; ++j2) {
-					d2 = (double) j2 + 0.5D - player.posZ;
-					label222: for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2) {
-						if (this.worldServerInstance.isAirBlock(i2, k2, j2)) {
-							while (k2 > 0 && this.worldServerInstance.isAirBlock(i2, k2 - 1, j2)) {
-								--k2;
-							}
-							for (i3 = l1; i3 < l1 + 2; ++i3) {
-								l2 = i3 % 2;
-								k3 = 1 - l2;
-								for (j3 = 0; j3 < 4; ++j3) {
-									for (i4 = -1; i4 < 4; ++i4) {
-										l3 = i2 + (j3 - 1) * l2;
-										k4 = k2 + i4;
-										j4 = j2 + (j3 - 1) * k3;
-										if (i4 < 0 && !this.worldServerInstance.getBlockMaterial(l3, k4, j4).isSolid() || i4 >= 0 && !this.worldServerInstance.isAirBlock(l3, k4, j4)) {
-											continue label222;
-										}
-									}
-								}
-								d4 = (double) k2 + 0.5D - player.posY;
-								d3 = d1 * d1 + d4 * d4 + d2 * d2;
-								if (d0 < 0.0D || d3 < d0) {
-									d0 = d3;
-									l = i2;
-									i1 = k2;
-									j1 = j2;
-									k1 = i3 % 2;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+
 		int i5 = l;
 		int j5 = i1;
 		j2 = j1;
 		int k5 = k1 % 2;
 		int l5 = 1 - k5;
+
 		if (k1 % 4 >= 2) {
 			k5 = -k5;
 			l5 = -l5;
 		}
+
 		boolean flag;
+
 		if (d0 < 0.0D) {
-			if (i1 < 70) {
-				i1 = 70;
+			if (i1 < 138) {
+				i1 = 138;
 			}
+
 			if (i1 > this.worldServerInstance.getActualHeight() - 10) {
 				i1 = this.worldServerInstance.getActualHeight() - 10;
 			}
+
 			j5 = i1;
+
 			for (k2 = -1; k2 <= 1; ++k2) {
 				for (i3 = 1; i3 < 3; ++i3) {
 					for (l2 = -1; l2 < 3; ++l2) {
@@ -337,13 +344,12 @@ public class TeleporterEI extends Teleporter {
 						j3 = j5 + l2;
 						i4 = j2 + (i3 - 1) * l5 - k2 * k5;
 						flag = l2 < 0;
-
-						/** change this block **/
-						this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.blockDiamond.blockID : 0);
+						this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.bedrock.blockID : 0);
 					}
 				}
 			}
 		}
+
 		for (k2 = 0; k2 < 4; ++k2) {
 			for (i3 = 0; i3 < 4; ++i3) {
 				for (l2 = -1; l2 < 4; ++l2) {
@@ -351,11 +357,10 @@ public class TeleporterEI extends Teleporter {
 					j3 = j5 + l2;
 					i4 = j2 + (i3 - 1) * l5;
 					flag = i3 == 0 || i3 == 3 || l2 == -1 || l2 == 3;
-
-					/** change these blocks **/
-					this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.blockDiamond.blockID : Block.blockRedstone.blockID, 0, 2);
+					this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.bedrock.blockID : ModBlocks.portalEI.blockID, 0, 2);
 				}
 			}
+
 			for (i3 = 0; i3 < 4; ++i3) {
 				for (l2 = -1; l2 < 4; ++l2) {
 					k3 = i5 + (i3 - 1) * k5;
@@ -365,6 +370,7 @@ public class TeleporterEI extends Teleporter {
 				}
 			}
 		}
+
 		return true;
 	}
 

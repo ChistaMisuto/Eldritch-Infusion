@@ -31,6 +31,6 @@ public class WorldProviderEI extends WorldProvider {
 	}
 	
 	public boolean canRespawnHere() {
-		return true;
+		return false;
 	}
 }

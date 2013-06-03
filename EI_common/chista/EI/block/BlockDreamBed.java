@@ -8,7 +8,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
@@ -45,8 +44,10 @@ public class BlockDreamBed extends BlockDirectional {
 		if (player instanceof EntityPlayerMP) {
 			EntityPlayerMP thePlayer = (EntityPlayerMP) player;
 			if (player.dimension != ModWorlds.eiDimensionId) {
+				// Teleports player to the dimension
 				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, ModWorlds.eiDimensionId, new TeleporterEI(thePlayer.mcServer.worldServerForDimension(ModWorlds.eiDimensionId)));
 			} else {
+				// Teleports the player back to the overworld
 				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterEI(thePlayer.mcServer.worldServerForDimension(0)));
 			}
 		}
@@ -169,36 +170,6 @@ public class BlockDreamBed extends BlockDirectional {
 		}
 
 		world.setBlockMetadataWithNotify(x, y, z, l, 4);
-	}
-
-	/**
-	 * Gets the nearest empty chunk coordinates for the player to wake up from a
-	 * bed into.
-	 */
-	public static ChunkCoordinates getNearestEmptyChunkCoordinates(World par0World, int par1, int par2, int par3, int par4) {
-		int i1 = par0World.getBlockMetadata(par1, par2, par3);
-		int j1 = BlockDirectional.getDirection(i1);
-
-		for (int k1 = 0; k1 <= 1; ++k1) {
-			int l1 = par1 - footBlockToHeadBlockMap[j1][0] * k1 - 1;
-			int i2 = par3 - footBlockToHeadBlockMap[j1][1] * k1 - 1;
-			int j2 = l1 + 2;
-			int k2 = i2 + 2;
-
-			for (int l2 = l1; l2 <= j2; ++l2) {
-				for (int i3 = i2; i3 <= k2; ++i3) {
-					if (par0World.doesBlockHaveSolidTopSurface(l2, par2 - 1, i3) && par0World.isAirBlock(l2, par2, i3) && par0World.isAirBlock(l2, par2 + 1, i3)) {
-						if (par4 <= 0) {
-							return new ChunkCoordinates(l2, par2, i3);
-						}
-
-						--par4;
-					}
-				}
-			}
-		}
-
-		return null;
 	}
 
 	/**
