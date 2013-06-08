@@ -14,6 +14,7 @@ import chista.EI.lib.Reference;
 import chista.EI.ore.ModOres;
 import chista.EI.world.ModWorlds;
 import chista.EI.world.biome.ModBiomes;
+import chista.item.crafting.ModRecipes;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -55,6 +56,7 @@ public class EI {
 		ModGems.init();	  // Initialize gems
 		ModBiomes.init(); // Initialize Biomes
 		ModWorlds.init(); // Initialize Dimension
+		ModRecipes.init(); //initialize recipes
 	}
 
 	@Init
