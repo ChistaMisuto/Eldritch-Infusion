@@ -34,8 +34,7 @@ public class StorageRecipes
         GameRegistry.addShapelessRecipe(new ItemStack(ModGems.hematiteGem, 9), hematiteBlockStack);
         GameRegistry.addShapelessRecipe(new ItemStack(ModGems.howliteGem, 9), howliteBlockStack);
         GameRegistry.addShapelessRecipe(new ItemStack(ModGems.mountainCrystalGem, 9), mountainCrystalBlockStack);
-        GameRegistry.addShapelessRecipe(new ItemStack(ModGems.onyxGem, 9), onyxBlockStack);
-        
+        GameRegistry.addShapelessRecipe(new ItemStack(ModGems.onyxGem, 9), onyxBlockStack);      
         
         
         GameRegistry.addRecipe(amethystBlockStack, "xxx", "xxx", "xxx", 'x', amethystStack);
