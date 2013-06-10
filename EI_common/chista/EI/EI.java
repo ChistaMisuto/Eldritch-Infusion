@@ -10,7 +10,6 @@ import chista.EI.core.proxy.CommonProxy;
 import chista.EI.creativetab.CreativeTabEI;
 import chista.EI.item.ModItems;
 import chista.EI.item.crafting.ModRecipes;
-import chista.EI.item.gem.ModGems;
 import chista.EI.lib.Reference;
 import chista.EI.ore.ModOres;
 import chista.EI.world.ModWorlds;
@@ -55,10 +54,9 @@ public class EI {
 		// Initialize WorldGen
 		GameRegistry.registerWorldGenerator(new WorldGeneratorEI());
 		
-		ModBlocks.init(); // Initialize blocks (portal)
+		ModBlocks.init(); // Initialize blocks
 		ModItems.init();  // Initialize items
 		ModOres.init();   // Initialize ores
-		ModGems.init();	  // Initialize gems
 		ModBiomes.init(); // Initialize Biomes
 		ModWorlds.init(); // Initialize Dimension
 		ModRecipes.init(); //initialize recipes
