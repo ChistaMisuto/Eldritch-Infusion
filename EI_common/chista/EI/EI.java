@@ -9,6 +9,7 @@ import chista.EI.core.handler.LocalizationHandler;
 import chista.EI.core.proxy.CommonProxy;
 import chista.EI.creativetab.CreativeTabEI;
 import chista.EI.item.ModItems;
+import chista.EI.item.crafting.ModRecipes;
 import chista.EI.item.gem.ModGems;
 import chista.EI.lib.Reference;
 import chista.EI.ore.ModOres;
@@ -60,6 +61,7 @@ public class EI {
 		ModGems.init();	  // Initialize gems
 		ModBiomes.init(); // Initialize Biomes
 		ModWorlds.init(); // Initialize Dimension
+		ModRecipes.init(); //initialize recipes
 	}
 
 	@Init
