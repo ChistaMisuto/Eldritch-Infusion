@@ -14,6 +14,14 @@ public class BlockIds {
 	public static final int HOWLITESTORAGEBLOCK_DEFAULT = 605;
 	public static final int MOUNTAINCRYSTALSTORAGEBLOCK_DEFAULT = 606;
 	public static final int ONYXSTORAGEBLOCK_DEFAULT = 607;
+	public static final int OPALSTORAGEBLOCK_DEFAULT = 608;
+	public static final int PERIDOTSTORAGEBLOCK_DEFAULT = 609;
+	public static final int RHODOCHROSITESTORAGEBLOCK_DEFAULT = 610;
+	public static final int SPHENESTORAGEBLOCK_DEFAULT = 611;
+	public static final int SPINELSTORAGEBLOCK_DEFAULT = 612;
+	public static final int TIGERSEYESTORAGEBLOCK_DEFAULT = 613;
+	public static final int TOPAZSTORAGEBLOCK_DEFAULT = 614;
+	public static final int TOURMALINESTORAGEBLOCK_DEFAULT = 615;
 	
 	// Default Ore block IDs
 	public static final int AMETHYSTOREBLOCK_DEFAULT = 500;

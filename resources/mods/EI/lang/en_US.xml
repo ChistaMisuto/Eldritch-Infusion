@@ -53,6 +53,14 @@
 	<entry key="tile.howliteBlock.name">Howlite Block</entry>
 	<entry key="tile.mountainCrystalBlock.name">Mountain Crystal Block</entry>
 	<entry key="tile.onyxBlock.name">Onyx Block</entry>
+	<entry key="tile.opalBlock.name">opal Block</entry>
+	<entry key="tile.peridotBlock.name">peridot Block</entry>
+	<entry key="tile.rhodochrositeBlock.name">rhodochrosite Block</entry>
+	<entry key="tile.spheneBlock.name">sphene Block</entry>
+	<entry key="tile.spinelBlock.name">spinel Block</entry>
+	<entry key="tile.tigersEyeBlock.name">tigersEye Block</entry>
+	<entry key="tile.topazBlock.name">topaz Block</entry>
+	<entry key="tile.tourmalineBlock.name">tourmaline Block</entry>
 
 	<!-- Creative tab -->
 	<entry key="itemGroup.EI">Eldritch Infusion</entry>
@@ -60,3 +68,5 @@
 	<!-- Portal -->
 	<entry key="tile.portalBlockEI.name">Portal EI</entry>
 </properties>
+
+

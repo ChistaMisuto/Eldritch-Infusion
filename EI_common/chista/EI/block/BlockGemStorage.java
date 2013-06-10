@@ -12,9 +12,9 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraftforge.common.MinecraftForge;
 
 public class BlockGemStorage extends Block {
-	
+
 	private boolean blockTransparent;
-	
+
 	public BlockGemStorage(int id, Boolean transparent) {
 		super(id, Material.rock);
 		this.setCreativeTab(EI.creativeTabEI);
@@ -22,30 +22,36 @@ public class BlockGemStorage extends Block {
 		MinecraftForge.setBlockHarvestLevel(this, "pickaxe", 2);
 		this.blockTransparent = transparent;
 	}
-	
+
 	@Override
-	 public boolean renderAsNormalBlock()
-    {
-		if(this.blockTransparent) {
+	public boolean renderAsNormalBlock() {
+		if (this.blockTransparent) {
 			return false;
 		}
-        return true;
-    }
-	
+		return true;
+	}
+
 	@Override
-	public boolean isOpaqueCube()
-    {
-		if(this.blockTransparent) {
+	public boolean isOpaqueCube() {
+		if (this.blockTransparent) {
 			return false;
 		}
-        return true;
-    }
+		return true;
+	}
 	
+	@SideOnly(Side.CLIENT)
+	public int getRenderBlockPass() {
+		if (this.blockTransparent) {
+			return 1;
+		}
+		return 0;
+	}
+
 	@Override
 	public int idDropped(int par1, Random rand, int enchantLevel) {
 		return blockID;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister icon) {

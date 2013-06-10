@@ -7,14 +7,19 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.LongHashMap;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import chista.EI.block.BlockDreamBed;
 import chista.EI.block.ModBlocks;
+import chista.EI.item.ModItems;
 import cpw.mods.fml.common.FMLLog;
 
 public class TeleporterEI extends Teleporter {
@@ -46,6 +51,7 @@ public class TeleporterEI extends Teleporter {
 		
 		if (this.worldServerInstance.provider.dimensionId != 0) {
 			
+			// Dimension spawn
 			if (!this.placeInExistingPortal(player, x, y, z, rotationYaw)) {
 				this.makePortal(player);
 				this.placeInExistingPortal(player, x, y, z, rotationYaw);
@@ -220,60 +226,66 @@ public class TeleporterEI extends Teleporter {
 		}
 	}
 
-	public boolean makePortal(Entity par1Entity) {
+	public boolean makePortal(Entity entity) {
 		byte b0 = 16;
 		double d0 = -1.0D;
-		int i = MathHelper.floor_double(par1Entity.posX);
-		int j = MathHelper.floor_double(par1Entity.posY);
-		int k = MathHelper.floor_double(par1Entity.posZ);
-		int l = i;
-		int i1 = j;
-		int j1 = k;
+		
+		int entityPosX = MathHelper.floor_double(entity.posX);
+		int entityPosY = MathHelper.floor_double(entity.posY);
+		int entityPosZ = MathHelper.floor_double(entity.posZ);
+		
+		int posX = entityPosX;
+		int posY = entityPosY;
+		int posZ = entityPosZ;
+		
 		int k1 = 0;
-		int l1 = this.random.nextInt(4);
-		int i2;
-		double d1;
-		double d2;
-		int j2;
-		int k2;
+		int random = this.random.nextInt(4);
+		int xPosCounter;
+		int zPosCounter;
+		int worldHeight;
 		int l2;
-		int i3;
+		int count;
 		int j3;
 		int k3;
 		int i4;
+		
+		double chunkX;
+		double chunkZ;
 		double d3;
-		double d4;
+		double posYFinal;
 
-		for (i2 = i - b0; i2 <= i + b0; ++i2) {
-			d1 = (double) i2 + 0.5D - par1Entity.posX;
+		for (xPosCounter = entityPosX - b0; xPosCounter <= entityPosX + b0; ++xPosCounter) {
+			
+			chunkX = (double) xPosCounter + 0.5D - entity.posX;
 
-			for (j2 = k - b0; j2 <= k + b0; ++j2) {
-				d2 = (double) j2 + 0.5D - par1Entity.posZ;
+			for (zPosCounter = entityPosZ - b0; zPosCounter <= entityPosZ + b0; ++zPosCounter) {
+				chunkZ = (double) zPosCounter + 0.5D - entity.posZ;
 
-				k2 = this.worldServerInstance.getActualHeight() - 1;
-				if (this.worldServerInstance.isAirBlock(i2, k2, j2)) {
-					while (k2 > 0 && this.worldServerInstance.isAirBlock(i2, k2 - 1, j2)) {
-						--k2;
+				worldHeight = this.worldServerInstance.getActualHeight() - 1;
+				
+				if (this.worldServerInstance.isAirBlock(xPosCounter, worldHeight, zPosCounter)) {
+					while (worldHeight > 0 && this.worldServerInstance.isAirBlock(xPosCounter, worldHeight - 1, zPosCounter)) {
+						--worldHeight;
 					}
 
-					for (i3 = l1; i3 < l1 + 4; ++i3) {
-						l2 = i3 % 2;
+					for (count = random; count < random + 4; ++count) {
+						l2 = count % 2;
 						k3 = 1 - l2;
 
-						if (i3 % 4 >= 2) {
+						if (count % 4 >= 2) {
 							l2 = -l2;
 							k3 = -k3;
 						}
 
-						d4 = (double) k2 + 0.5D - par1Entity.posY;
-						d3 = d1 * d1 + d4 * d4 + d2 * d2;
+						posYFinal = (double) worldHeight + 0.5D - entity.posY;
+						d3 = chunkX * chunkX + posYFinal * posYFinal + chunkZ * chunkZ;
 
 						if (d0 < 0.0D || d3 < d0) {
 							d0 = d3;
-							l = i2;
-							i1 = k2;
-							j1 = j2;
-							k1 = i3 % 4;
+							posX = xPosCounter;
+							posY = worldHeight;
+							posZ = zPosCounter;
+							k1 = count % 4;
 						}
 					}
 				}
@@ -281,31 +293,31 @@ public class TeleporterEI extends Teleporter {
 		}
 
 		if (d0 < 0.0D) {
-			for (i2 = i - b0; i2 <= i + b0; ++i2) {
-				d1 = (double) i2 + 0.5D - par1Entity.posX;
+			for (xPosCounter = entityPosX - b0; xPosCounter <= entityPosX + b0; ++xPosCounter) {
+				chunkX = (double) xPosCounter + 0.5D - entity.posX;
 
-				for (j2 = k - b0; j2 <= k + b0; ++j2) {
-					d2 = (double) j2 + 0.5D - par1Entity.posZ;
+				for (zPosCounter = entityPosZ - b0; zPosCounter <= entityPosZ + b0; ++zPosCounter) {
+					chunkZ = (double) zPosCounter + 0.5D - entity.posZ;
 
-					k2 = this.worldServerInstance.getActualHeight() - 1;
-					if (this.worldServerInstance.isAirBlock(i2, k2, j2)) {
-						while (k2 > 0 && this.worldServerInstance.isAirBlock(i2, k2 - 1, j2)) {
-							--k2;
+					worldHeight = this.worldServerInstance.getActualHeight() - 1;
+					if (this.worldServerInstance.isAirBlock(xPosCounter, worldHeight, zPosCounter)) {
+						while (worldHeight > 0 && this.worldServerInstance.isAirBlock(xPosCounter, worldHeight - 1, zPosCounter)) {
+							--worldHeight;
 						}
 
-						for (i3 = l1; i3 < l1 + 2; ++i3) {
-							l2 = i3 % 2;
+						for (count = random; count < random + 2; ++count) {
+							l2 = count % 2;
 							k3 = 1 - l2;
 
-							d4 = (double) k2 + 0.5D - par1Entity.posY;
-							d3 = d1 * d1 + d4 * d4 + d2 * d2;
+							posYFinal = (double) worldHeight + 0.5D - entity.posY;
+							d3 = chunkX * chunkX + posYFinal * posYFinal + chunkZ * chunkZ;
 
 							if (d0 < 0.0D || d3 < d0) {
 								d0 = d3;
-								l = i2;
-								i1 = k2;
-								j1 = j2;
-								k1 = i3 % 2;
+								posX = xPosCounter;
+								posY = worldHeight;
+								posZ = zPosCounter;
+								k1 = count % 2;
 							}
 						}
 					}
@@ -313,9 +325,9 @@ public class TeleporterEI extends Teleporter {
 			}
 		}
 
-		int i5 = l;
-		int j5 = i1;
-		j2 = j1;
+		int i5 = posX;
+		int j5 = posY;
+		zPosCounter = posZ;
 		int k5 = k1 % 2;
 		int l5 = 1 - k5;
 
@@ -327,22 +339,22 @@ public class TeleporterEI extends Teleporter {
 		boolean flag;
 
 		if (d0 < 0.0D) {
-			if (i1 < 138) {
-				i1 = 138;
+			if (posY < 138) {
+				posY = 138;
 			}
 
-			if (i1 > this.worldServerInstance.getActualHeight() - 10) {
-				i1 = this.worldServerInstance.getActualHeight() - 10;
+			if (posY > this.worldServerInstance.getActualHeight() - 10) {
+				posY = this.worldServerInstance.getActualHeight() - 10;
 			}
 
-			j5 = i1;
+			j5 = posY;
 
-			for (k2 = -1; k2 <= 1; ++k2) {
-				for (i3 = 1; i3 < 3; ++i3) {
+			for (worldHeight = -1; worldHeight <= 1; ++worldHeight) {
+				for (count = 1; count < 3; ++count) {
 					for (l2 = -1; l2 < 3; ++l2) {
-						k3 = i5 + (i3 - 1) * k5 + k2 * l5;
+						k3 = i5 + (count - 1) * k5 + worldHeight * l5;
 						j3 = j5 + l2;
-						i4 = j2 + (i3 - 1) * l5 - k2 * k5;
+						i4 = zPosCounter + (count - 1) * l5 - worldHeight * k5;
 						flag = l2 < 0;
 						this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.bedrock.blockID : 0);
 					}
@@ -350,22 +362,22 @@ public class TeleporterEI extends Teleporter {
 			}
 		}
 
-		for (k2 = 0; k2 < 4; ++k2) {
-			for (i3 = 0; i3 < 4; ++i3) {
+		for (worldHeight = 0; worldHeight < 4; ++worldHeight) {
+			for (count = 0; count < 4; ++count) {
 				for (l2 = -1; l2 < 4; ++l2) {
-					k3 = i5 + (i3 - 1) * k5;
+					k3 = i5 + (count - 1) * k5;
 					j3 = j5 + l2;
-					i4 = j2 + (i3 - 1) * l5;
-					flag = i3 == 0 || i3 == 3 || l2 == -1 || l2 == 3;
+					i4 = zPosCounter + (count - 1) * l5;
+					flag = count == 0 || count == 3 || l2 == -1 || l2 == 3;
 					this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.bedrock.blockID : ModBlocks.portalEI.blockID, 0, 2);
 				}
 			}
 
-			for (i3 = 0; i3 < 4; ++i3) {
+			for (count = 0; count < 4; ++count) {
 				for (l2 = -1; l2 < 4; ++l2) {
-					k3 = i5 + (i3 - 1) * k5;
+					k3 = i5 + (count - 1) * k5;
 					j3 = j5 + l2;
-					i4 = j2 + (i3 - 1) * l5;
+					i4 = zPosCounter + (count - 1) * l5;
 					this.worldServerInstance.notifyBlocksOfNeighborChange(k3, j3, i4, this.worldServerInstance.getBlockId(k3, j3, i4));
 				}
 			}
@@ -374,6 +386,7 @@ public class TeleporterEI extends Teleporter {
 		return true;
 	}
 
+	
 	/**
 	 * called periodically to remove out-of-date portal locations from the cache
 	 * list. Argument par1 is a WorldServer.getTotalWorldTime() value.

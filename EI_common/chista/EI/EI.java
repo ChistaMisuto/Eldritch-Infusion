@@ -14,6 +14,7 @@ import chista.EI.lib.Reference;
 import chista.EI.ore.ModOres;
 import chista.EI.world.ModWorlds;
 import chista.EI.world.biome.ModBiomes;
+import chista.EI.world.gen.WorldGeneratorEI;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -23,6 +24,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * @mod class for EI
@@ -49,6 +51,9 @@ public class EI {
 		// Initialize the configuration file
 		ConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME + File.separator + Reference.MOD_ID + ".cfg"));
 
+		// Initialize WorldGen
+		GameRegistry.registerWorldGenerator(new WorldGeneratorEI());
+		
 		ModBlocks.init(); // Initialize blocks (portal)
 		ModItems.init();  // Initialize items
 		ModOres.init();   // Initialize ores

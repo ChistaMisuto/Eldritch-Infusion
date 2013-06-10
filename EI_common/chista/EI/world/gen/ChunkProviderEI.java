@@ -355,8 +355,6 @@ public class ChunkProviderEI implements IChunkProvider {
 		this.noise3 = this.noiseGen3.generateNoiseOctaves(this.noise3, par2, par3, par4, par5, par6, par7, d0 / 80.0D, d1 / 160.0D, d0 / 80.0D);
 		this.noise1 = this.noiseGen1.generateNoiseOctaves(this.noise1, par2, par3, par4, par5, par6, par7, d0, d1, d0);
 		this.noise2 = this.noiseGen2.generateNoiseOctaves(this.noise2, par2, par3, par4, par5, par6, par7, d0, d1, d0);
-		boolean flag = false;
-		boolean flag1 = false;
 		int i2 = 0;
 		int j2 = 0;
 

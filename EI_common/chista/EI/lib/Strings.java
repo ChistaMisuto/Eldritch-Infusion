@@ -16,6 +16,14 @@ public class Strings {
 	public static final String HOWLITESTORAGEBLOCK_NAME = "howliteBlock";
 	public static final String MOUNTAINCRYSTALSTORAGEBLOCK_NAME = "mountainCrystalBlock";
 	public static final String ONYXSTORAGEBLOCK_NAME = "onyxBlock";
+	public static final String OPALSTORAGEBLOCK_NAME = "opalBlock";
+	public static final String PERIDOTSTORAGEBLOCK_NAME = "peridotBlock";
+	public static final String RHODOCHROSITESTORAGEBLOCK_NAME = "rhodochrositeBlock";
+	public static final String SPHENESTORAGEBLOCK_NAME = "spheneBlock";
+	public static final String SPINELSTORAGEBLOCK_NAME = "spinelBlock";
+	public static final String TIGERSEYESTORAGEBLOCK_NAME = "tigersEyeBlock";
+	public static final String TOPAZSTORAGEBLOCK_NAME = "topazBlock";
+	public static final String TOURMALINESTORAGEBLOCK_NAME = "tourmalineBlock";
 	
 	// Ores
 	public static final String AMETHYSTORE_NAME = "amethystOre";
