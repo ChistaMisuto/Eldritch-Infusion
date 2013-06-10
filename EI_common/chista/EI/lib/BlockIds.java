@@ -14,6 +14,7 @@ public class BlockIds {
 	public static final int HOWLITESTORAGEBLOCK_DEFAULT = 605;
 	public static final int MOUNTAINCRYSTALSTORAGEBLOCK_DEFAULT = 606;
 	public static final int ONYXSTORAGEBLOCK_DEFAULT = 607;
+	public static final int OPALSTORAGEBLOCK_DEFAULT = 608;
 	
 	// Default Ore block IDs
 	public static final int AMETHYSTOREBLOCK_DEFAULT = 500;

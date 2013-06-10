@@ -29,7 +29,8 @@ public class BlockGemStorage extends Block {
 		if(this.blockTransparent) {
 			return false;
 		}
-        return true;
+		return true;
+		
     }
 	
 	@Override
@@ -38,7 +39,7 @@ public class BlockGemStorage extends Block {
 		if(this.blockTransparent) {
 			return false;
 		}
-        return true;
+		return true;
     }
 	
 	@Override
