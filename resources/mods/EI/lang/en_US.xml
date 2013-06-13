@@ -4,6 +4,8 @@
 	<comment>English (en_US) Localization File</comment>
 	<!-- Blocks -->
 	<entry key="tile.dreamBed.name">Dreamer's bed</entry>
+	<entry key="tile.glowGrass.name">Glowing grass</entry>
+	<entry key="tile.gravusbloomFlower.name">Gravus bloom</entry>
 
 	<!-- Items -->
 	<entry key="item.dreamBedItem.name">Dreamers bed</entry>

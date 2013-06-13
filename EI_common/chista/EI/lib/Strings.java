@@ -3,6 +3,8 @@ package chista.EI.lib;
 public class Strings {
 	// Blocks
 	public static final String DREAMBED_NAME = "dreamBed";
+	public static final String GLOWGRASS_NAME = "glowGrass";
+	public static final String GRAVUSBLOOM_NAME = "gravulbloomFlower";
 	
 	// Items
 	public static final String DREAMBED_ITEM_NAME = "dreamBedItem";

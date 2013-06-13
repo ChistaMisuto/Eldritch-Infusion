@@ -10,6 +10,8 @@ public class ModBlocks {
 	
 	public static Block portalEI;
 	public static Block dreamBed;
+	public static Block glowGrass;
+	public static Block gravusbloomFlower;
 	
 	// Ore storage blocks
 	public static Block amethystBlock;
@@ -33,6 +35,18 @@ public class ModBlocks {
 		portalEI = new PortalBlockEI(559);
 		dreamBed = new BlockDreamBed(BlockIds.DREAMBED);
 		
+		glowGrass = new BlockGlowGrass(BlockIds.GLOWGRASS);
+		GameRegistry.registerBlock(glowGrass, Strings.GLOWGRASS_NAME);
+		
+		gravusbloomFlower = new BlockGravusbloom(BlockIds.GRAVUSBLOOM);
+		GameRegistry.registerBlock(gravusbloomFlower, Strings.GRAVUSBLOOM_NAME);
+		
+		
+		loadGemStorage();
+		registerBlocks();
+	}
+	
+	public static void loadGemStorage() {
 		amethystBlock = new BlockGemStorage(BlockIds.AMETHYSTSTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.AMETHYSTSTORAGEBLOCK_NAME);
 		aquamarineBlock = new BlockGemStorage(BlockIds.AQUAMARINEORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.AQUAMARINEORAGEBLOCK_NAME);
 		carnelianBlock = new BlockGemStorage(BlockIds.CARNELIANORAGEBLOCK_DEFAULT, false).setUnlocalizedName(Strings.CARNELIANORAGEBLOCK_NAME);
@@ -49,11 +63,14 @@ public class ModBlocks {
 		tigersEyeBlock = new BlockGemStorage(BlockIds.TIGERSEYESTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.TIGERSEYESTORAGEBLOCK_NAME);
 		topazBlock = new BlockGemStorage(BlockIds.TOPAZSTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.TOPAZSTORAGEBLOCK_NAME);
 		tourmalineBlock = new BlockGemStorage(BlockIds.TOURMALINESTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.TOURMALINESTORAGEBLOCK_NAME);
-		
-		
+	}
+	
+	public static void registerBlocks() {
+		// Blocks
 		GameRegistry.registerBlock(portalEI, "portalBlockEI");
 		GameRegistry.registerBlock(dreamBed, Strings.DREAMBED_NAME);
 		
+		// Storage blocks
 		GameRegistry.registerBlock(amethystBlock, Strings.AMETHYSTSTORAGEBLOCK_NAME);
 		GameRegistry.registerBlock(aquamarineBlock, Strings.AQUAMARINEORAGEBLOCK_NAME);
 		GameRegistry.registerBlock(carnelianBlock, Strings.CARNELIANORAGEBLOCK_NAME);
@@ -62,7 +79,6 @@ public class ModBlocks {
 		GameRegistry.registerBlock(howliteBlock, Strings.HOWLITESTORAGEBLOCK_NAME);
 		GameRegistry.registerBlock(mountainCrystalBlock, Strings.MOUNTAINCRYSTALSTORAGEBLOCK_NAME);
 		GameRegistry.registerBlock(onyxBlock, Strings.ONYXSTORAGEBLOCK_NAME);
-		
 		GameRegistry.registerBlock(opalBlock, Strings.OPALSTORAGEBLOCK_NAME);
 		GameRegistry.registerBlock(peridotBlock, Strings.PERIDOTSTORAGEBLOCK_NAME);
 		GameRegistry.registerBlock(rhodochrositeBlock, Strings.RHODOCHROSITESTORAGEBLOCK_NAME);

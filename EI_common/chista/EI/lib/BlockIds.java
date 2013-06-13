@@ -4,6 +4,8 @@ public class BlockIds {
 	
 	// Blocks
 	public static final int DREAMBED = 516;
+	public static final int GLOWGRASS = 517;
+	public static final int GRAVUSBLOOM = 518;
 	
 	// Gem storage block IDs
 	public static final int AMETHYSTSTORAGEBLOCK_DEFAULT = 600;

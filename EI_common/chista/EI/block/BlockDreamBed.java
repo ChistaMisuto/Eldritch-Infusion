@@ -13,6 +13,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import chista.EI.item.ModItems;
+import chista.EI.lib.Reference;
 import chista.EI.lib.Strings;
 import chista.EI.world.ModWorlds;
 import chista.EI.world.TeleporterEI;
@@ -69,9 +70,9 @@ public class BlockDreamBed extends BlockDirectional {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister icon) {
-		this.bedTopIcons = new Icon[] { icon.registerIcon("bed_feet_top"), icon.registerIcon("bed_head_top") };
-		this.bedFrontEndIcons = new Icon[] { icon.registerIcon("bed_feet_end"), icon.registerIcon("bed_head_end") };
-		this.bedSideIcons = new Icon[] { icon.registerIcon("bed_feet_side"), icon.registerIcon("bed_head_side") };
+		this.bedTopIcons = new Icon[] { icon.registerIcon(Reference.MOD_ID + ":dreamBed_feet_top"), icon.registerIcon(Reference.MOD_ID + ":dreamBed_head_top") };
+		this.bedFrontEndIcons = new Icon[] { icon.registerIcon(Reference.MOD_ID + ":dreamBed_feet_end"), icon.registerIcon(Reference.MOD_ID + ":dreamBed_head_end") };
+		this.bedSideIcons = new Icon[] { icon.registerIcon(Reference.MOD_ID + ":dreamBed_feet_side"), icon.registerIcon(Reference.MOD_ID + ":dreamBed_head_side") };
 	}
 
 	/**
