@@ -8,10 +8,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBlocks {
 	
-	public static Block portalEI;
-	public static Block dreamBed;
+	// Testing blocks
 	public static Block glowGrass;
 	public static Block gravusbloomFlower;
+	public static Block fairyCap;
+	public static Block honeyFungus;
+	
+	// Work in progress
+	public static Block portalEI;
+	public static Block dreamBed;
 	
 	// Ore storage blocks
 	public static Block amethystBlock;
@@ -40,6 +45,12 @@ public class ModBlocks {
 		
 		gravusbloomFlower = new BlockGravusbloom(BlockIds.GRAVUSBLOOM);
 		GameRegistry.registerBlock(gravusbloomFlower, Strings.GRAVUSBLOOM_NAME);
+		
+		fairyCap = new BlockFairyCap(BlockIds.FAIRYCAP);
+		GameRegistry.registerBlock(fairyCap, Strings.FAIRYCAP_NAME);
+		
+		honeyFungus = new BlockHoneyFungus(BlockIds.HONEYFUNGUS);
+		GameRegistry.registerBlock(honeyFungus, Strings.HONEYFUNGUS_NAME);
 		
 		
 		loadGemStorage();

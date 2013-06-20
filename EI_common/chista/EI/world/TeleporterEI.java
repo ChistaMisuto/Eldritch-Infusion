@@ -86,9 +86,8 @@ public class TeleporterEI extends Teleporter {
 		double chunkY;
 		int posX;
 		
+		// Check if the portal position has been saved in the coordination cache
 		if (this.destinationCoordinateCache.containsItem(chunkCoordIntPair)) {
-			
-			FMLLog.info("this.destinationCoordinateCache.containsItem(j1) = true!", new Object[0]);
 			
 			PortalPositionEI portalposition = (PortalPositionEI) this.destinationCoordinateCache.getValueByKey(chunkCoordIntPair);
 			d3 = 0.0D;
@@ -99,7 +98,7 @@ public class TeleporterEI extends Teleporter {
 			flag = false;
 			
 		} else {
-			// Portal has not been found
+			// Checks if the portal exists in the chunk
 			
 			for (posX = playerPosX - short1; posX <= playerPosX + short1; ++posX) {
 				// original D5
@@ -123,7 +122,6 @@ public class TeleporterEI extends Teleporter {
 							double d7 = chunkX * chunkX + chunkY * chunkY + chunkZ * chunkZ;
 							if (d3 < 0.0D || d7 < d3) {
 								d3 = d7;
-								FMLLog.info("d7="+d7, new Object[0]);
 								portalStartX = posX;
 								portalStartY = height;
 								portalStartZ = posY;
@@ -136,10 +134,14 @@ public class TeleporterEI extends Teleporter {
 		
 		
 		if (d3 >= 0.0D) {
+			
+			// if flag, add portal position to coordinate cache
 			if (flag) {
 				this.destinationCoordinateCache.add(chunkCoordIntPair, new PortalPositionEI(this, portalStartX, portalStartY, portalStartZ, this.worldServerInstance.getTotalWorldTime()));
 				this.destinationCoordinateKeys.add(Long.valueOf(chunkCoordIntPair));
 			}
+			
+			
 			double d8 = (double) portalStartX + 0.5D;
 			double d9 = (double) portalStartY + 0.5D;
 			chunkY = (double) portalStartZ + 0.5D;

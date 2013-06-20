@@ -6,6 +6,8 @@
 	<entry key="tile.dreamBed.name">Dreamer's bed</entry>
 	<entry key="tile.glowGrass.name">Glowing grass</entry>
 	<entry key="tile.gravusbloomFlower.name">Gravus bloom</entry>
+	<entry key="tile.honeyFungus.name">Honey fungus</entry>
+	<entry key="tile.fairyCap.name">Fairy cap</entry>
 
 	<!-- Items -->
 	<entry key="item.dreamBedItem.name">Dreamers bed</entry>
