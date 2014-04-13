@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>English (en_US) Localization File</comment>
+	<!-- Blocks -->
+	<entry key="tile.dreamBed.name">Dreamer's bed</entry>
+	<entry key="tile.glowGrass.name">Glowing grass</entry>
+	<entry key="tile.gravusbloomFlower.name">Gravus bloom</entry>
+	<entry key="tile.honeyFungus.name">Honey fungus</entry>
+	<entry key="tile.fairyCap.name">Fairy cap</entry>
+
+	<!-- Items -->
+	<entry key="item.dreamBedItem.name">Dreamers bed</entry>
+
+	<!-- Ores -->
+	<entry key="tile.amethystOre.name">Amethyst ore</entry>
+	<entry key="tile.aquamarineOre.name">Aquamarine ore</entry>
+	<entry key="tile.carnelianOre.name">Carnelian</entry>
+	<entry key="tile.garnetOre.name">Garnet ore</entry>
+	<entry key="tile.hematiteOre.name">Hematite ore</entry>
+	<entry key="tile.howliteOre.name">Howlite ore</entry>
+	<entry key="tile.mountainCrystalOre.name">Mountain Crystal ore</entry>
+	<entry key="tile.onyxOre.name">Onyx ore</entry>
+	<entry key="tile.opalOre.name">Opal ore</entry>
+	<entry key="tile.peridotOre.name">Peridot ore</entry>
+	<entry key="tile.rhodochrositeOre.name">Rhodochrosite ore</entry>
+	<entry key="tile.spheneOre.name">Sphene ore</entry>
+	<entry key="tile.spinelOre.name">Spinel ore</entry>
+	<entry key="tile.tigersEyeOre.name">Tigers eye ore</entry>
+	<entry key="tile.topazOre.name">Topaz ore</entry>
+	<entry key="tile.tourmalineOre.name">Tourmaline ore</entry>
+
+	<!-- Gems -->
+	<entry key="item.amethystGem.name">Amethyst</entry>
+	<entry key="item.aquamarineGem.name">Aquamarine</entry>
+	<entry key="item.carnelianGem.name">Carnelian</entry>
+	<entry key="item.garnetGem.name">Garnet</entry>
+	<entry key="item.hematiteGem.name">Hematite</entry>
+	<entry key="item.howliteGem.name">Howlite</entry>
+	<entry key="item.mountainCrystalGem.name">Mountain Crystal</entry>
+	<entry key="item.onyxGem.name">Onyx</entry>
+	<entry key="item.opalGem.name">Opal</entry>
+	<entry key="item.peridotGem.name">Peridot</entry>
+	<entry key="item.rhodochrositeGem.name">Rhodochrosite</entry>
+	<entry key="item.spheneGem.name">Sphene</entry>
+	<entry key="item.spinelGem.name">Spinel</entry>
+	<entry key="item.tigersEyeGem.name">Tigers eye</entry>
+	<entry key="item.topazGem.name">Topaz</entry>
+	<entry key="item.tourmalineGem.name">Tourmaline</entry>
+
+	<!-- Gem storage blocks -->
+	<entry key="tile.amethystBlock.name">Amethyst Block</entry>
+	<entry key="tile.aquamarineBlock.name">Aquamarine Block</entry>
+	<entry key="tile.carnelianBlock.name">Carnelian Block</entry>
+	<entry key="tile.garnetBlock.name">Garnet Block</entry>
+	<entry key="tile.hematiteBlock.name">Hematite Block</entry>
+	<entry key="tile.howliteBlock.name">Howlite Block</entry>
+	<entry key="tile.mountainCrystalBlock.name">Mountain Crystal Block</entry>
+	<entry key="tile.onyxBlock.name">Onyx Block</entry>
+	<entry key="tile.opalBlock.name">opal Block</entry>
+	<entry key="tile.peridotBlock.name">peridot Block</entry>
+	<entry key="tile.rhodochrositeBlock.name">rhodochrosite Block</entry>
+	<entry key="tile.spheneBlock.name">sphene Block</entry>
+	<entry key="tile.spinelBlock.name">spinel Block</entry>
+	<entry key="tile.tigersEyeBlock.name">tigersEye Block</entry>
+	<entry key="tile.topazBlock.name">topaz Block</entry>
+	<entry key="tile.tourmalineBlock.name">tourmaline Block</entry>
+
+	<!-- Creative tab -->
+	<entry key="itemGroup.EI">Eldritch Infusion</entry>
+	
+	<!-- Portal -->
+	<entry key="tile.portalBlockEI.name">Portal EI</entry>
+</properties>
+
+

@@ -1,0 +1,21 @@
+[
+{
+	"modid": "EI",
+	"name": "Eldritch Infusion",
+	"description": "Dabble in the arts of magical infusion.",
+	"version": "0.0.1",
+	"url": "https://github.com/ChistaMisuto/Eldritch-Infusion",
+	"updateUrl": "",
+	"authorList": [
+		"Chista",
+		"Somebody3lse"
+	],
+	"credits": "To all the boxes of cookies that died making this mod. We salute you!",
+	"logoFile": "/mods/EI/textures/logo/logo.png",
+	"screenshots": [
+	],
+	"parent": "",
+	"dependencies": [
+	]
+}
+]
