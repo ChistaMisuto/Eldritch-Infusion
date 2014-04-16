@@ -17,6 +17,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkPosition;
@@ -36,7 +37,7 @@ import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.Event.Result;
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
@@ -135,7 +136,7 @@ public class ChunkProviderEI implements IChunkProvider {
 		this.mobSpawnerNoise = new NoiseGeneratorOctaves(this.rand, 8);
 
 		NoiseGeneratorOctaves[] noiseGens = { noiseGen1, noiseGen2, noiseGen3, noiseGen4, noiseGen5, noiseGen6, mobSpawnerNoise };
-		noiseGens = TerrainGen.getModdedNoiseGenerators(world, this.rand, noiseGens);
+		noiseGens = (NoiseGeneratorOctaves[]) TerrainGen.getModdedNoiseGenerators(world, this.rand, noiseGens);
 		this.noiseGen1 = noiseGens[0];
 		this.noiseGen2 = noiseGens[1];
 		this.noiseGen3 = noiseGens[2];
@@ -149,7 +150,7 @@ public class ChunkProviderEI implements IChunkProvider {
 	 * Generates the shape of the terrain for the chunk though its all stone
 	 * though the water is frozen if the temperature is low enough
 	 */
-	public void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte) {
+	public void generateTerrain(int par1, int par2, Block[] par3ArrayOfByte) {
 		byte b0 = 4;
 		byte b1 = 16;
 		byte b2 = 63;
@@ -189,11 +190,11 @@ public class ChunkProviderEI implements IChunkProvider {
 
 							for (int k2 = 0; k2 < 4; ++k2) {
 								if ((d16 += d15) > 0.0D) {
-									par3ArrayOfByte[j2 += short1] = (byte) Block.stone.blockID;
+									par3ArrayOfByte[j2 += short1] = Blocks.stone;
 								} else if (k1 * 8 + l1 < b2) {
-									par3ArrayOfByte[j2 += short1] = (byte) Block.waterStill.blockID;
+									par3ArrayOfByte[j2 += short1] = Blocks.water;
 								} else {
-									par3ArrayOfByte[j2 += short1] = 0;
+									par3ArrayOfByte[j2 += short1] = Blocks.air;
 								}
 							}
 
@@ -214,7 +215,8 @@ public class ChunkProviderEI implements IChunkProvider {
 	/**
 	 * Replaces the stone that was placed in with blocks that match the biome
 	 */
-	public void replaceBlocksForBiome(int par1, int par2, byte[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase) {
+	
+	public void replaceBlocksForBiome(int par1, int par2, Block[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase) {
 		ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, par1, par2, par3ArrayOfByte, par4ArrayOfBiomeGenBase);
 		MinecraftForge.EVENT_BUS.post(event);
 		if (event.getResult() == Result.DENY)
@@ -227,37 +229,37 @@ public class ChunkProviderEI implements IChunkProvider {
 		for (int k = 0; k < 16; ++k) {
 			for (int l = 0; l < 16; ++l) {
 				BiomeGenBase biomegenbase = par4ArrayOfBiomeGenBase[l + k * 16];
-				float f = biomegenbase.getFloatTemperature();
+				float f = biomegenbase.getFloatTemperature();//guessing xyz coords need to go here
 				int i1 = (int) (this.stoneNoise[k + l * 16] / 3.0D + 3.0D + this.rand.nextDouble() * 0.25D);
 				int j1 = -1;
-				byte b1 = biomegenbase.topBlock;
-				byte b2 = biomegenbase.fillerBlock;
+				Block b1 = biomegenbase.topBlock;
+				Block b2 = biomegenbase.fillerBlock;
 
 				for (int k1 = 127; k1 >= 0; --k1) {
 					int l1 = (l * 16 + k) * 128 + k1;
 
 					if (k1 <= 0 + this.rand.nextInt(5)) {
-						par3ArrayOfByte[l1] = (byte) Block.bedrock.blockID;
+						par3ArrayOfByte[l1] = Blocks.bedrock;
 					} else {
-						byte b3 = par3ArrayOfByte[l1];
+						Block b3 = par3ArrayOfByte[l1];
 
-						if (b3 == 0) {
+						if (b3 == Blocks.air) {
 							j1 = -1;
-						} else if (b3 == Block.stone.blockID) {
+						} else if (b3 == Blocks.stone) {
 							if (j1 == -1) {
 								if (i1 <= 0) {
-									b1 = 0;
-									b2 = (byte) Block.stone.blockID;
+									b1 = Blocks.air;
+									b2 = Blocks.stone;
 								} else if (k1 >= b0 - 4 && k1 <= b0 + 1) {
 									b1 = biomegenbase.topBlock;
 									b2 = biomegenbase.fillerBlock;
 								}
 
-								if (k1 < b0 && b1 == 0) {
+								if (k1 < b0 && b1 == Blocks.air) {
 									if (f < 0.15F) {
-										b1 = (byte) Block.ice.blockID;
+										b1 = Blocks.ice;
 									} else {
-										b1 = (byte) Block.waterStill.blockID;
+										b1 = Blocks.water;
 									}
 								}
 
@@ -272,9 +274,9 @@ public class ChunkProviderEI implements IChunkProvider {
 								--j1;
 								par3ArrayOfByte[l1] = b2;
 
-								if (j1 == 0 && b2 == Block.sand.blockID) {
+								if (j1 == 0 && b2 == Blocks.sand) {
 									j1 = this.rand.nextInt(4);
-									b2 = (byte) Block.sandStone.blockID;
+									b2 = Blocks.sandstone;
 								}
 							}
 						}
@@ -298,7 +300,7 @@ public class ChunkProviderEI implements IChunkProvider {
 	 */
 	public Chunk provideChunk(int par1, int par2) {
 		this.rand.setSeed((long) par1 * 341873128712L + (long) par2 * 132897987541L);
-		byte[] abyte = new byte[32768];
+		Block[] abyte = new Block[32768];
 		this.generateTerrain(par1, par2, abyte);
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
 		this.replaceBlocksForBiome(par1, par2, abyte, this.biomesForGeneration);
@@ -491,7 +493,7 @@ public class ChunkProviderEI implements IChunkProvider {
 			k1 = k + this.rand.nextInt(16) + 8;
 			l1 = this.rand.nextInt(128);
 			i2 = l + this.rand.nextInt(16) + 8;
-			(new WorldGenLakes(Block.waterStill.blockID)).generate(this.worldObj, this.rand, k1, l1, i2);
+			(new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, k1, l1, i2);
 		}
 
 		if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAVA) && !flag && this.rand.nextInt(8) == 0) {
@@ -500,7 +502,7 @@ public class ChunkProviderEI implements IChunkProvider {
 			i2 = l + this.rand.nextInt(16) + 8;
 
 			if (l1 < 63 || this.rand.nextInt(10) == 0) {
-				(new WorldGenLakes(Block.lavaStill.blockID)).generate(this.worldObj, this.rand, k1, l1, i2);
+				(new WorldGenLakes(Blocks.lava)).generate(this.worldObj, this.rand, k1, l1, i2);
 			}
 		}
 
@@ -526,11 +528,11 @@ public class ChunkProviderEI implements IChunkProvider {
 				i2 = this.worldObj.getPrecipitationHeight(k + k1, l + l1);
 
 				if (this.worldObj.isBlockFreezable(k1 + k, i2 - 1, l1 + l)) {
-					this.worldObj.setBlock(k1 + k, i2 - 1, l1 + l, Block.ice.blockID, 0, 2);
+					this.worldObj.setBlock(k1 + k, i2 - 1, l1 + l, Blocks.ice, 0, 2);
 				}
 
 				if (this.worldObj.canSnowAt(k1 + k, i2, l1 + l)) {
-					this.worldObj.setBlock(k1 + k, i2, l1 + l, Block.snow.blockID, 0, 2);
+					this.worldObj.setBlock(k1 + k, i2, l1 + l, Blocks.snow, 0, 2);
 				}
 			}
 		}
@@ -588,7 +590,7 @@ public class ChunkProviderEI implements IChunkProvider {
 	 * not found returns null.
 	 */
 	public ChunkPosition findClosestStructure(World par1World, String par2Str, int par3, int par4, int par5) {
-		return "Stronghold".equals(par2Str) && this.strongholdGenerator != null ? this.strongholdGenerator.getNearestInstance(par1World, par3, par4, par5) : null;
+		return "Stronghold".equals(par2Str) && this.strongholdGenerator != null ? this.strongholdGenerator.func_151545_a(par1World, par3, par4, par5) : null;
 	}
 
 	public int getLoadedChunkCount() {

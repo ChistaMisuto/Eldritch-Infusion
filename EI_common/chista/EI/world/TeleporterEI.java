@@ -5,23 +5,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.LongHashMap;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
 //import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import chista.EI.block.BlockDreamBed;
 import chista.EI.block.ModBlocks;
-import chista.EI.item.ModItems;
-import cpw.mods.fml.common.FMLLog;
+
 
 public class TeleporterEI extends Teleporter {
 	private final WorldServer worldServerInstance;
