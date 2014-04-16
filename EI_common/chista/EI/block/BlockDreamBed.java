@@ -2,14 +2,15 @@ package chista.EI.block;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.util.Direction;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import chista.EI.item.ModItems;
@@ -26,16 +27,16 @@ public class BlockDreamBed extends BlockDirectional {
 	public static final int[][] footBlockToHeadBlockMap = new int[][] { { 0, 1 }, { -1, 0 }, { 0, -1 }, { 1, 0 } };
 
 	@SideOnly(Side.CLIENT)
-	private Icon[] bedSideIcons;
+	private IIcon[] bedSideIcons;
 	@SideOnly(Side.CLIENT)
-	private Icon[] bedTopIcons;
+	private IIcon[] bedTopIcons;
 	@SideOnly(Side.CLIENT)
-	private Icon[] bedFrontEndIcons;
+	private IIcon[] bedFrontEndIcons;
 
-	protected BlockDreamBed(int id) {
-		super(id, Material.cloth);
+	protected BlockDreamBed() {
+		super(Material.cloth);
 		this.setBounds();
-		this.setUnlocalizedName(Strings.DREAMBED_NAME);
+		this.setBlockName(Strings.DREAMBED_NAME);
 	}
 
 	/**
@@ -56,9 +57,9 @@ public class BlockDreamBed extends BlockDirectional {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int side, int metadata) {
+	public IIcon getIcon(int side, int metadata) {
 		if (side == 0) {
-			return Block.planks.getBlockTextureFromSide(side);
+			return Blocks.planks.getBlockTextureFromSide(side);
 		} else {
 			int k = getDirection(metadata);
 			int l = Direction.bedDirection[k][side];
@@ -69,10 +70,10 @@ public class BlockDreamBed extends BlockDirectional {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerIcons(IconRegister icon) {
-		this.bedTopIcons = new Icon[] { icon.registerIcon(Reference.MOD_ID + ":dreamBed_feet_top"), icon.registerIcon(Reference.MOD_ID + ":dreamBed_head_top") };
-		this.bedFrontEndIcons = new Icon[] { icon.registerIcon(Reference.MOD_ID + ":dreamBed_feet_end"), icon.registerIcon(Reference.MOD_ID + ":dreamBed_head_end") };
-		this.bedSideIcons = new Icon[] { icon.registerIcon(Reference.MOD_ID + ":dreamBed_feet_side"), icon.registerIcon(Reference.MOD_ID + ":dreamBed_head_side") };
+	public void registerBlockIcons(IIconRegister icon) {
+		this.bedTopIcons = new IIcon[] { icon.registerIcon(Reference.MOD_ID + ":dreamBed_feet_top"), icon.registerIcon(Reference.MOD_ID + ":dreamBed_head_top") };
+		this.bedFrontEndIcons = new IIcon[] { icon.registerIcon(Reference.MOD_ID + ":dreamBed_feet_end"), icon.registerIcon(Reference.MOD_ID + ":dreamBed_head_end") };
+		this.bedSideIcons = new IIcon[] { icon.registerIcon(Reference.MOD_ID + ":dreamBed_feet_side"), icon.registerIcon(Reference.MOD_ID + ":dreamBed_head_side") };
 	}
 
 	/**
@@ -117,10 +118,10 @@ public class BlockDreamBed extends BlockDirectional {
 		int j1 = getDirection(i1);
 
 		if (isBlockHeadOfBed(i1)) {
-			if (par1World.getBlockId(x - footBlockToHeadBlockMap[j1][0], y, z - footBlockToHeadBlockMap[j1][1]) != this.blockID) {
+			if (par1World.getBlock(x - footBlockToHeadBlockMap[j1][0], y, z - footBlockToHeadBlockMap[j1][1]) != this) {
 				par1World.setBlockToAir(x, y, z);
 			}
-		} else if (par1World.getBlockId(x + footBlockToHeadBlockMap[j1][0], y, z + footBlockToHeadBlockMap[j1][1]) != this.blockID) {
+		} else if (par1World.getBlock(x + footBlockToHeadBlockMap[j1][0], y, z + footBlockToHeadBlockMap[j1][1]) != this) {
 			par1World.setBlockToAir(x, y, z);
 
 			if (!par1World.isRemote) {
@@ -132,8 +133,8 @@ public class BlockDreamBed extends BlockDirectional {
 	/**
 	 * Returns the ID of the items to drop on destruction.
 	 */
-	public int idDropped(int par1, Random par2Random, int par3) {
-		return isBlockHeadOfBed(par1) ? 0 : ModItems.dreamBedItem.itemID;
+	public Item getItemDropped(int par1, Random par2Random, int par3) {
+		return (Item) (isBlockHeadOfBed(par1) ? 0 : ModItems.dreamBedItem);
 	}
 
 	/**
@@ -196,8 +197,8 @@ public class BlockDreamBed extends BlockDirectional {
 	 * inventory.setCurrentItem (along with isCreative)
 	 */
 	@SideOnly(Side.CLIENT)
-	public int idPicked(World par1World, int par2, int par3, int par4) {
-		return ModItems.dreamBedItem.itemID;
+	public Item idPicked(World par1World, int par2, int par3, int par4) {
+		return ModItems.dreamBedItem;
 	}
 
 	/**
@@ -209,7 +210,7 @@ public class BlockDreamBed extends BlockDirectional {
 			par2 -= footBlockToHeadBlockMap[i1][0];
 			par4 -= footBlockToHeadBlockMap[i1][1];
 
-			if (par1World.getBlockId(par2, par3, par4) == this.blockID) {
+			if (par1World.getBlock(par2, par3, par4) == this) {
 				par1World.setBlockToAir(par2, par3, par4);
 			}
 		}

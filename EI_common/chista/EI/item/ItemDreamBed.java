@@ -1,11 +1,12 @@
 package chista.EI.item;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import chista.EI.EI;
 import chista.EI.block.BlockDreamBed;
 import chista.EI.block.ModBlocks;
@@ -16,8 +17,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemDreamBed extends Item {
 
-	public ItemDreamBed(int id) {
-		super(id);
+	public ItemDreamBed() {
+		super();
 		this.setUnlocalizedName(Strings.DREAMBED_ITEM_NAME);
 		this.setCreativeTab(EI.creativeTabEI);
 	}
@@ -56,11 +57,11 @@ public class ItemDreamBed extends Item {
 			}
 
 			if (player.canPlayerEdit(x, y, z, par7, stack) && player.canPlayerEdit(x + b0, y, z + b1, par7, stack)) {
-				if (world.isAirBlock(x, y, z) && world.isAirBlock(x + b0, y, z + b1) && world.doesBlockHaveSolidTopSurface(x, y - 1, z) && world.doesBlockHaveSolidTopSurface(x + b0, y - 1, z + b1)) {
-					world.setBlock(x, y, z, blockbed.blockID, i1, 3);
+				if (world.isAirBlock(x, y, z) && world.isAirBlock(x + b0, y, z + b1) && world.isSideSolid(x, y -1, z, ForgeDirection.UP) && world.isSideSolid(x + b0, y - 1, z + b1, ForgeDirection.UP)) {
+					world.setBlock(x, y, z, blockbed, i1, 3);
 
-					if (world.getBlockId(x, y, z) == blockbed.blockID) {
-						world.setBlock(x + b0, y, z + b1, blockbed.blockID, i1 + 8, 3);
+					if (world.getBlock(x, y, z) == blockbed) {
+						world.setBlock(x + b0, y, z + b1, blockbed, i1 + 8, 3);
 					}
 
 					--stack.stackSize;
@@ -76,7 +77,7 @@ public class ItemDreamBed extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerIcons(IconRegister icon) {
+	public void registerIcons(IIconRegister icon) {
 		itemIcon = icon.registerIcon(Reference.MOD_ID + ":" + this.getUnlocalizedName().substring(5));
 	}
 }

@@ -29,7 +29,7 @@ import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
-import net.minecraft.world.gen.feature.MapGenScatteredFeature;
+import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenMineshaft;

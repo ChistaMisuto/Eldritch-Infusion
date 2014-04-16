@@ -8,12 +8,13 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.LongHashMap;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
-import net.minecraft.world.PortalPosition;
+//import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -111,9 +112,9 @@ public class TeleporterEI extends Teleporter {
 					for (int height = this.worldServerInstance.getActualHeight() - 1; height >= 0; --height) {
 						
 						
-						if (this.worldServerInstance.getBlockId(posX, height, posY) == Block.blockRedstone.blockID) {
+						if (this.worldServerInstance.getBlock(posX, height, posY) == Blocks.redstone_block) {
 							
-							while (this.worldServerInstance.getBlockId(posX, height - 1, posY) == Block.blockRedstone.blockID) {
+							while (this.worldServerInstance.getBlock(posX, height - 1, posY) == Blocks.redstone_block) {
 								--height;
 							}
 							
@@ -147,19 +148,19 @@ public class TeleporterEI extends Teleporter {
 			chunkY = (double) portalStartZ + 0.5D;
 			int j2 = -1;
 			
-			if (this.worldServerInstance.getBlockId(portalStartX - 1, portalStartY, portalStartZ) == Block.blockRedstone.blockID) {
+			if (this.worldServerInstance.getBlock(portalStartX - 1, portalStartY, portalStartZ) == Blocks.redstone_block) {
 				j2 = 2;
 			}
 			
-			if (this.worldServerInstance.getBlockId(portalStartX + 1, portalStartY, portalStartZ) == Block.blockRedstone.blockID) {
+			if (this.worldServerInstance.getBlock(portalStartX + 1, portalStartY, portalStartZ) == Blocks.redstone_block) {
 				j2 = 0;
 			}
 			
-			if (this.worldServerInstance.getBlockId(portalStartX, portalStartY, portalStartZ - 1) == Block.blockRedstone.blockID) {
+			if (this.worldServerInstance.getBlock(portalStartX, portalStartY, portalStartZ - 1) == Blocks.redstone_block) {
 				j2 = 3;
 			}
 			
-			if (this.worldServerInstance.getBlockId(portalStartX, portalStartY, portalStartZ + 1) == Block.blockRedstone.blockID) {
+			if (this.worldServerInstance.getBlock(portalStartX, portalStartY, portalStartZ + 1) == Blocks.redstone_block) {
 				j2 = 1;
 			}
 			int k2 = player.getTeleportDirection();
@@ -358,7 +359,7 @@ public class TeleporterEI extends Teleporter {
 						j3 = j5 + l2;
 						i4 = zPosCounter + (count - 1) * l5 - worldHeight * k5;
 						flag = l2 < 0;
-						this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.bedrock.blockID : 0);
+						this.worldServerInstance.setBlock(k3, j3, i4, flag ? Blocks.bedrock : Blocks.air);
 					}
 				}
 			}
@@ -371,7 +372,7 @@ public class TeleporterEI extends Teleporter {
 					j3 = j5 + l2;
 					i4 = zPosCounter + (count - 1) * l5;
 					flag = count == 0 || count == 3 || l2 == -1 || l2 == 3;
-					this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.bedrock.blockID : ModBlocks.portalEI.blockID, 0, 2);
+					this.worldServerInstance.setBlock(k3, j3, i4, flag ? Blocks.bedrock : ModBlocks.portalEI, 0, 2);
 				}
 			}
 
@@ -380,7 +381,7 @@ public class TeleporterEI extends Teleporter {
 					k3 = i5 + (count - 1) * k5;
 					j3 = j5 + l2;
 					i4 = zPosCounter + (count - 1) * l5;
-					this.worldServerInstance.notifyBlocksOfNeighborChange(k3, j3, i4, this.worldServerInstance.getBlockId(k3, j3, i4));
+					this.worldServerInstance.notifyBlocksOfNeighborChange(k3, j3, i4, this.worldServerInstance.getBlock(k3, j3, i4));
 				}
 			}
 		}

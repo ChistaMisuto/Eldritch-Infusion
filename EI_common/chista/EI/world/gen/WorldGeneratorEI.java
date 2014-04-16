@@ -59,6 +59,7 @@ public class WorldGeneratorEI implements IWorldGenerator {
 	private void overWorldGeneration(World world, Random random, int chunkX, int chunkZ) {
 		BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
 		// Select the right biome for the ores to spawn in
+		//? WORKS ONLY IN JAVA 1.7 WILL BREAK JAVA 1.6
 		switch (biome.biomeName) {
 			case "Ocean":
 				// Aquamarine
@@ -187,7 +188,7 @@ public class WorldGeneratorEI implements IWorldGenerator {
 			int posX = chunkX + random.nextInt(15);
 			int posZ = chunkZ + random.nextInt(15);
 			int posY = minY + random.nextInt(maxY - minY);
-			(new WorldGenMinable(block.blockID, vainSize)).generate(world, random, posX, posY, posZ);
+			(new WorldGenMinable(block, vainSize)).generate(world, random, posX, posY, posZ);
 		}
 	}
 }

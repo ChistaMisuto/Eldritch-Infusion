@@ -2,7 +2,6 @@ package chista.EI.ore;
 
 import net.minecraft.block.Block;
 
-import chista.EI.lib.BlockIds;
 import chista.EI.lib.Strings;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -30,22 +29,22 @@ public class ModOres {
 	public static void init() {
 
 		// Load blocks
-		amethystOre = new OreAmethyst(BlockIds.AMETHYSTOREBLOCK);
-		aquamarineOre = new OreAquamarine(BlockIds.AQUAMARINEOREBLOCK);
-		carnelianOre = new OreCarnelian(BlockIds.CARNELIAOREBLOCK);
-		garnetOre = new OreGarnet(BlockIds.GARNETOREBLOCK);
-		hematiteOre = new OreHematite(BlockIds.HEMATITEOREBLOCK);
-		howliteOre = new OreHowlite(BlockIds.HOWLITEOREBLOCK);
-		mountainCrystalOre = new OreMountainCrystal(BlockIds.MOUNTAINCRYSTALOREBLOCK);
-		onyxOre = new OreOnyx(BlockIds.ONYXOREBLOCK);
-		opalOre = new OreOpal(BlockIds.OPALOREBLOCK);
-		peridotOre = new OrePeridot(BlockIds.PERIDOTOREBLOCK);
-		rhodocrositeOre = new OreRhodochrosite(BlockIds.RHODOCHROSITEOREBLOCK);
-		spheneOre = new OreSphene(BlockIds.SPHENEOREBLOCK);
-		spinelOre = new OreSpinel(BlockIds.SPINELOREBLOCK);
-		tigersEyeOre = new OreTigersEye(BlockIds.TIGERSEYEOREBLOCK);
-		topazOre = new OreTopaz(BlockIds.TOPAZOREBLOCK);
-		tourmalineOre = new OreTourmaline(BlockIds.TOURMALINEOREBLOCK);
+		amethystOre = new OreAmethyst();
+		aquamarineOre = new OreAquamarine();
+		carnelianOre = new OreCarnelian();
+		garnetOre = new OreGarnet();
+		hematiteOre = new OreHematite();
+		howliteOre = new OreHowlite();
+		mountainCrystalOre = new OreMountainCrystal();
+		onyxOre = new OreOnyx();
+		opalOre = new OreOpal();
+		peridotOre = new OrePeridot();
+		rhodocrositeOre = new OreRhodochrosite();
+		spheneOre = new OreSphene();
+		spinelOre = new OreSpinel();
+		tigersEyeOre = new OreTigersEye();
+		topazOre = new OreTopaz();
+		tourmalineOre = new OreTourmaline();
 
 		// Register blocks
 		GameRegistry.registerBlock(amethystOre, Strings.AMETHYSTORE_NAME);

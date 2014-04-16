@@ -10,7 +10,7 @@ import chista.EI.lib.Strings;
 
 import cpw.mods.fml.common.FMLLog;
 
-import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.config.Configuration;
 
 public class ConfigurationHandler {
 	public static Configuration config;

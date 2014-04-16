@@ -2,7 +2,7 @@ package chista.EI.lib;
 
 public class Reference
 {
-    public static final String MOD_ID = "EI";
+    public static final String MOD_ID = "ei";//It is said that the mod id should be lower case
     public static final String MOD_NAME = "Eldritch Infusion";
     public static final String MOD_VERSION = "0.0.1";
     

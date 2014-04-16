@@ -1,6 +1,7 @@
 package chista.EI.world.biome;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenBiolJungle extends BiomeGenBase {
@@ -10,7 +11,7 @@ public class BiomeGenBiolJungle extends BiomeGenBase {
 		this.setBiomeName("Bioluminescent Jungle");
 		this.setTemperatureRainfall(1.2F, 0.9F);
 		this.setMinMaxHeight(0.2F, 0.4F);
-		topBlock = (byte) Block.grass.blockID;
-		fillerBlock = (byte) Block.dirt.blockID;
+		topBlock = Blocks.grass;
+		fillerBlock = Blocks.dirt;
 	}
 }

@@ -9,28 +9,31 @@ import chista.EI.lib.Reference;
 import chista.EI.lib.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.util.Icon;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockGlowGrass extends Block {
 
 	@SideOnly(Side.CLIENT)
-	private Icon iconGrassTop;
+	private IIcon iconGrassTop;
 
-	public BlockGlowGrass(int id) {
-		super(id, Material.ground);
-		this.setUnlocalizedName(Strings.GLOWGRASS_NAME);
+	public BlockGlowGrass() {
+		super(Material.ground);
+		this.setBlockName(Strings.GLOWGRASS_NAME);
 		this.setCreativeTab(EI.creativeTabEI);
 	}
 
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int par1, int par2) {
-		return par1 == 1 ? this.iconGrassTop : (par1 == 0 ? Block.dirt.getBlockTextureFromSide(par1) : blockIcon);
+	@Override
+	public IIcon getIcon(int par1, int par2) {
+		return par1 == 1 ? this.iconGrassTop : (par1 == 0 ? Blocks.dirt.getBlockTextureFromSide(par1) : blockIcon);
 	}
 
-	public int idDropped(int par1, Random par2Random, int par3) {
-		return Block.dirt.blockID;
+	public Item getItemDropped(int par1, Random par2Random, int par3) {
+		return Item.getItemFromBlock(Blocks.dirt);
 	}
 
 	/**
@@ -38,11 +41,11 @@ public class BlockGlowGrass extends Block {
 	 * iBlockAccess, x, y, z, side
 	 */
 	@SideOnly(Side.CLIENT)
-	public Icon getBlockTexture(IBlockAccess block, int x, int y, int z, int side) {
+	public IIcon getBlockTexture(IBlockAccess block, int x, int y, int z, int side) {
 		if (side == 1) {
 			return this.iconGrassTop;
 		} else if (side == 0) {
-			return Block.dirt.getBlockTextureFromSide(side);
+			return Blocks.dirt.getBlockTextureFromSide(side);
 		} else {
 			return this.blockIcon;
 		}
@@ -55,7 +58,7 @@ public class BlockGlowGrass extends Block {
 	 */
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerIcons(IconRegister iconRegister) {
+	public void registerBlockIcons(IIconRegister iconRegister) {
 		blockIcon = iconRegister.registerIcon(Reference.MOD_ID + ":glowGrass_Side");
 		this.iconGrassTop = iconRegister.registerIcon(Reference.MOD_ID + ":glowGrass_Top");
 	}

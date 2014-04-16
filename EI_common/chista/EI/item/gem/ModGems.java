@@ -1,7 +1,6 @@
 package chista.EI.item.gem;
 
 import net.minecraft.item.Item;
-import chista.EI.lib.ItemIds;
 import chista.EI.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -26,22 +25,22 @@ public class ModGems {
 
 	public static void init() {
 		// Load items
-		amethystGem = new ItemAmethystGem(ItemIds.AMETHYSTGEM);
-		aquamarineGem = new ItemAquamarineGem(ItemIds.AQUAMARINEGEM);
-		carnelianGem = new ItemCarnelianGem(ItemIds.CARNELIANGEM);
-		garnetGem = new ItemGarnetGem(ItemIds.GARNETGEM);
-		hematiteGem = new ItemHematiteGem(ItemIds.HEMATITEGEM);
-		howliteGem = new ItemHowliteGem(ItemIds.HOWLITEGEM);
-		mountainCrystalGem = new ItemMountainCrystalGem( ItemIds.MOUNTAINCRYSTALGEM);
-		onyxGem = new ItemOnyxGem(ItemIds.ONYXGEM);
-		opalGem = new ItemOpalGem(ItemIds.OPALGEM);
-		peridotGem = new ItemPeridotGem(ItemIds.PERIDOTGEM);
-		rhodochrositeGem = new ItemRhodochrositeGem(ItemIds.RHODOCHROSITEGEM);
-		spheneGem = new ItemSpheneGem(ItemIds.SPHENEGEM);
-		spinelGem = new ItemSpinelGem(ItemIds.SPINELGEM);
-		tigersEyeGem = new ItemTigersEyeGem(ItemIds.TIGERSEYEGEM);
-		topazGem = new ItemTopazGem(ItemIds.TOPAZGEM);
-		tourmalineGem = new ItemTourmalineGem(ItemIds.TOURMALINEGEM);
+		amethystGem = new ItemAmethystGem();
+		aquamarineGem = new ItemAquamarineGem();
+		carnelianGem = new ItemCarnelianGem();
+		garnetGem = new ItemGarnetGem();
+		hematiteGem = new ItemHematiteGem();
+		howliteGem = new ItemHowliteGem();
+		mountainCrystalGem = new ItemMountainCrystalGem();
+		onyxGem = new ItemOnyxGem();
+		opalGem = new ItemOpalGem();
+		peridotGem = new ItemPeridotGem();
+		rhodochrositeGem = new ItemRhodochrositeGem();
+		spheneGem = new ItemSpheneGem();
+		spinelGem = new ItemSpinelGem();
+		tigersEyeGem = new ItemTigersEyeGem();
+		topazGem = new ItemTopazGem();
+		tourmalineGem = new ItemTourmalineGem();
 
 		// Register items
 		GameRegistry.registerItem(amethystGem, Strings.AMETHYSTGEM_NAME);

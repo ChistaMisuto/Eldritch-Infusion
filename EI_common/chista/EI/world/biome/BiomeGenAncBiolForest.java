@@ -1,6 +1,7 @@
 package chista.EI.world.biome;
 
-import net.minecraft.block.Block;
+import chista.EI.block.ModBlocks;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenAncBiolForest extends BiomeGenBase {
@@ -9,8 +10,8 @@ public class BiomeGenAncBiolForest extends BiomeGenBase {
 		super(id);
 		this.setBiomeName("Ancient Bioluminescent Forest");
 		this.setTemperatureRainfall(0.7F, 0.8F);
-		topBlock = (byte) Block.blockIron.blockID;
-		fillerBlock = (byte) Block.dirt.blockID;
+		topBlock = ModBlocks.glowGrass;
+		fillerBlock = Blocks.dirt;
 	}
 
 }

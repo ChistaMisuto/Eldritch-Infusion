@@ -1,6 +1,5 @@
 package chista.EI.block;
 
-import chista.EI.lib.BlockIds;
 import chista.EI.lib.Strings;
 import net.minecraft.block.Block;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -37,19 +36,19 @@ public class ModBlocks {
 	public static Block tourmalineBlock;
 	
 	public static void init() {
-		portalEI = new PortalBlockEI(559);
-		dreamBed = new BlockDreamBed(BlockIds.DREAMBED);
+		portalEI = new PortalBlockEI();
+		dreamBed = new BlockDreamBed();
 		
-		glowGrass = new BlockGlowGrass(BlockIds.GLOWGRASS);
+		glowGrass = new BlockGlowGrass();
 		GameRegistry.registerBlock(glowGrass, Strings.GLOWGRASS_NAME);
 		
-		gravusbloomFlower = new BlockGravusbloom(BlockIds.GRAVUSBLOOM);
+		gravusbloomFlower = new BlockGravusbloom();
 		GameRegistry.registerBlock(gravusbloomFlower, Strings.GRAVUSBLOOM_NAME);
 		
-		fairyCap = new BlockFairyCap(BlockIds.FAIRYCAP);
+		fairyCap = new BlockFairyCap();
 		GameRegistry.registerBlock(fairyCap, Strings.FAIRYCAP_NAME);
 		
-		honeyFungus = new BlockHoneyFungus(BlockIds.HONEYFUNGUS);
+		honeyFungus = new BlockHoneyFungus();
 		GameRegistry.registerBlock(honeyFungus, Strings.HONEYFUNGUS_NAME);
 		
 		
@@ -58,22 +57,22 @@ public class ModBlocks {
 	}
 	
 	public static void loadGemStorage() {
-		amethystBlock = new BlockGemStorage(BlockIds.AMETHYSTSTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.AMETHYSTSTORAGEBLOCK_NAME);
-		aquamarineBlock = new BlockGemStorage(BlockIds.AQUAMARINEORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.AQUAMARINEORAGEBLOCK_NAME);
-		carnelianBlock = new BlockGemStorage(BlockIds.CARNELIANORAGEBLOCK_DEFAULT, false).setUnlocalizedName(Strings.CARNELIANORAGEBLOCK_NAME);
-		garnetBlock = new BlockGemStorage(BlockIds.GARNETSTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.GARNETSTORAGEBLOCK_NAME);
-		hematiteBlock = new BlockGemStorage(BlockIds.HEMATITESTORAGEBLOCK_DEFAULT, false).setUnlocalizedName(Strings.HEMATITESTORAGEBLOCK_NAME);
-		howliteBlock = new BlockGemStorage(BlockIds.HOWLITESTORAGEBLOCK_DEFAULT, false).setUnlocalizedName(Strings.HOWLITESTORAGEBLOCK_NAME);
-		mountainCrystalBlock = new BlockGemStorage(BlockIds.MOUNTAINCRYSTALSTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.MOUNTAINCRYSTALSTORAGEBLOCK_NAME);
-		onyxBlock = new BlockGemStorage(BlockIds.ONYXSTORAGEBLOCK_DEFAULT, false).setUnlocalizedName(Strings.ONYXSTORAGEBLOCK_NAME);
-		opalBlock = new BlockGemStorage(BlockIds.OPALSTORAGEBLOCK_DEFAULT, false).setUnlocalizedName(Strings.OPALSTORAGEBLOCK_NAME);
-		peridotBlock = new BlockGemStorage(BlockIds.PERIDOTSTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.PERIDOTSTORAGEBLOCK_NAME);
-		rhodochrositeBlock = new BlockGemStorage(BlockIds.RHODOCHROSITESTORAGEBLOCK_DEFAULT, false).setUnlocalizedName(Strings.RHODOCHROSITESTORAGEBLOCK_NAME);
-		spheneBlock = new BlockGemStorage(BlockIds.SPHENESTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.SPHENESTORAGEBLOCK_NAME);
-		spinelBlock = new BlockGemStorage(BlockIds.SPINELSTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.SPINELSTORAGEBLOCK_NAME);
-		tigersEyeBlock = new BlockGemStorage(BlockIds.TIGERSEYESTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.TIGERSEYESTORAGEBLOCK_NAME);
-		topazBlock = new BlockGemStorage(BlockIds.TOPAZSTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.TOPAZSTORAGEBLOCK_NAME);
-		tourmalineBlock = new BlockGemStorage(BlockIds.TOURMALINESTORAGEBLOCK_DEFAULT, true).setUnlocalizedName(Strings.TOURMALINESTORAGEBLOCK_NAME);
+		amethystBlock = new BlockGemStorage(true).setBlockName(Strings.AMETHYSTSTORAGEBLOCK_NAME);
+		aquamarineBlock = new BlockGemStorage(true).setBlockName(Strings.AQUAMARINEORAGEBLOCK_NAME);
+		carnelianBlock = new BlockGemStorage(false).setBlockName(Strings.CARNELIANORAGEBLOCK_NAME);
+		garnetBlock = new BlockGemStorage(true).setBlockName(Strings.GARNETSTORAGEBLOCK_NAME);
+		hematiteBlock = new BlockGemStorage(false).setBlockName(Strings.HEMATITESTORAGEBLOCK_NAME);
+		howliteBlock = new BlockGemStorage(false).setBlockName(Strings.HOWLITESTORAGEBLOCK_NAME);
+		mountainCrystalBlock = new BlockGemStorage(true).setBlockName(Strings.MOUNTAINCRYSTALSTORAGEBLOCK_NAME);
+		onyxBlock = new BlockGemStorage(false).setBlockName(Strings.ONYXSTORAGEBLOCK_NAME);
+		opalBlock = new BlockGemStorage(false).setBlockName(Strings.OPALSTORAGEBLOCK_NAME);
+		peridotBlock = new BlockGemStorage(true).setBlockName(Strings.PERIDOTSTORAGEBLOCK_NAME);
+		rhodochrositeBlock = new BlockGemStorage(false).setBlockName(Strings.RHODOCHROSITESTORAGEBLOCK_NAME);
+		spheneBlock = new BlockGemStorage(true).setBlockName(Strings.SPHENESTORAGEBLOCK_NAME);
+		spinelBlock = new BlockGemStorage(true).setBlockName(Strings.SPINELSTORAGEBLOCK_NAME);
+		tigersEyeBlock = new BlockGemStorage(true).setBlockName(Strings.TIGERSEYESTORAGEBLOCK_NAME);
+		topazBlock = new BlockGemStorage(true).setBlockName(Strings.TOPAZSTORAGEBLOCK_NAME);
+		tourmalineBlock = new BlockGemStorage(true).setBlockName(Strings.TOURMALINESTORAGEBLOCK_NAME);
 	}
 	
 	public static void registerBlocks() {
