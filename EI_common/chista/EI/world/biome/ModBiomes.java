@@ -2,6 +2,8 @@ package chista.EI.world.biome;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import chista.EI.lib.BiomeIds;
 
 public class ModBiomes {
@@ -31,9 +33,10 @@ public class ModBiomes {
 //		GameRegistry.addBiome(ancientBioluminescentPlains);
 //		GameRegistry.addBiome(ancientBioluminescentSwamp);
 		
-		WorldChunkManager.allowedBiomes.add(bioluminescentJungle);
-		WorldChunkManager.allowedBiomes.add(bioluminescentSwamp);
-		WorldChunkManager.allowedBiomes.add(coralReef);
+		BiomeDictionary.registerBiomeType(bioluminescentJungle, Type.JUNGLE);
+		BiomeDictionary.registerBiomeType(bioluminescentSwamp, Type.SWAMP);
+		BiomeDictionary.registerBiomeType(coralReef, Type.WATER);
+		
 		
 
 		// Remove all non essential biomes for testing!
