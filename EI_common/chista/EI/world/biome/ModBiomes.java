@@ -1,11 +1,8 @@
 package chista.EI.world.biome;
 
-import net.minecraft.world.World;
-import net.minecraft.world.WorldSettings.GameType;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
 import chista.EI.lib.BiomeIds;
-import cpw.mods.fml.common.registry.GameData;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBiomes {
 	public static BiomeGenBase ancientBioluminescentForest;
@@ -34,24 +31,23 @@ public class ModBiomes {
 //		GameRegistry.addBiome(ancientBioluminescentPlains);
 //		GameRegistry.addBiome(ancientBioluminescentSwamp);
 		
-		GameRegistry.addBiome(bioluminescentJungle);
-		GameRegistry.addBiome(bioluminescentSwamp);
-		GameRegistry.addBiome(coralReef);
-		registerBiome(bioluminescentJungle, 0, "Bioluminescent Jungle");
+		WorldChunkManager.allowedBiomes.add(bioluminescentJungle);
+		WorldChunkManager.allowedBiomes.add(bioluminescentSwamp);
+		WorldChunkManager.allowedBiomes.add(coralReef);
+		
 
 		// Remove all non essential biomes for testing!
 		// TODO: Remove on publishing
-		GameRegistry.removeBiome(BiomeGenBase.iceMountains);
-		GameRegistry.removeBiome(BiomeGenBase.extremeHillsEdge);
-		GameRegistry.removeBiome(BiomeGenBase.extremeHills);
-		GameRegistry.removeBiome(BiomeGenBase.taiga);
-		GameRegistry.removeBiome(BiomeGenBase.ocean);
-		GameRegistry.removeBiome(BiomeGenBase.desert);
-		GameRegistry.removeBiome(BiomeGenBase.jungle);
-		GameRegistry.removeBiome(BiomeGenBase.jungleHills);
-		GameRegistry.removeBiome(BiomeGenBase.swampland);
-		GameRegistry.removeBiome(BiomeGenBase.icePlains);
-
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.iceMountains);
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.extremeHillsEdge);
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.extremeHills);
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.taiga);
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.ocean);
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.desert);
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.jungle);
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.jungleHills);
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.swampland);
+		WorldChunkManager.allowedBiomes.remove(BiomeGenBase.icePlains);
 	}
 
 }
