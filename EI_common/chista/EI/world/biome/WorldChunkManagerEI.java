@@ -77,7 +77,7 @@ public class WorldChunkManagerEI extends WorldChunkManager {
 		int[] aint = this.myBiomeIndexLayer.getInts(par2, par3, par4, par5);
 
 		for (int i1 = 0; i1 < par4 * par5; ++i1) {
-			float f = (float) BiomeGenBase.biomeList[aint[i1]].getIntRainfall() / 65536.0F;
+			float f = (float) BiomeGenBase.biomeID[aint[i1]].getIntRainfall() / 65536.0F;
 
 			if (f > 1.0F) {
 				f = 1.0F;

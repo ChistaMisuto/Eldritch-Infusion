@@ -1,7 +1,10 @@
 package chista.EI.world.biome;
 
+import net.minecraft.world.World;
+import net.minecraft.world.WorldSettings.GameType;
 import net.minecraft.world.biome.BiomeGenBase;
 import chista.EI.lib.BiomeIds;
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBiomes {
@@ -34,6 +37,7 @@ public class ModBiomes {
 		GameRegistry.addBiome(bioluminescentJungle);
 		GameRegistry.addBiome(bioluminescentSwamp);
 		GameRegistry.addBiome(coralReef);
+		registerBiome(bioluminescentJungle, 0, "Bioluminescent Jungle");
 
 		// Remove all non essential biomes for testing!
 		// TODO: Remove on publishing

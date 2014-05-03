@@ -7,6 +7,7 @@ public class BiomeGenCoralReef extends BiomeGenBase {
 		super(par1);
 		spawnableCreatureList.clear();
 		this.setBiomeName("Coral Reef");
-		this.setMinMaxHeight(-1.0F, 0.4F);
+		this.rootHeight = -1.0F;
+		this.heightVariation = 0.4F;
 	}
 }

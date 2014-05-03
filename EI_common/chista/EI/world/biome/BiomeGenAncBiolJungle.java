@@ -9,7 +9,9 @@ public class BiomeGenAncBiolJungle extends BiomeGenBase {
 		spawnableCreatureList.clear();
 		this.setBiomeName("Ancient Bioluminescent Jungle");
 		this.setTemperatureRainfall(1.2F, 0.9F);
-		this.setMinMaxHeight(0.2F, 0.4F);
+		this.rootHeight = 0F;
+		this.heightVariation = 1F; //not sure if should be less...
+		
 		topBlock = Blocks.diamond_block;
 		fillerBlock = Blocks.dirt;
 		
